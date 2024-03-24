@@ -5,11 +5,11 @@ let COUNT = 0
 let intervalo
 let pausado = true
 const excavadoras = [
-  { type: 'excavadora', src: '../assets/ObraCivl/excavadora.png' },
-  { type: 'excavadora', src: '../assets/ObraCivl/Hitachi.png' },
-  { type: 'excavadora', src: '../assets/ObraCivl/pala.png' },
-  { type: 'excavadora', src: '../assets/ObraCivl/take-1px.png' },
-  { type: 'excavadora', src: '../assets/ObraCivl/take-2px.png' }
+  { type: 'excavadora', src: '/assets/ObraCivl/excavadora.png' },
+  { type: 'excavadora', src: '/assets/ObraCivl/Hitachi.png' },
+  { type: 'excavadora', src: '/assets/ObraCivl/pala.png' },
+  { type: 'excavadora', src: '/assets/ObraCivl/take-1px.png' },
+  { type: 'excavadora', src: '/assets/ObraCivl/take-2px.png' }
 ]
 
 /* random excavadora */
@@ -36,7 +36,7 @@ export const initObra = () => {
   textoContador.className = 'textoContador'
   cesta.className = 'cesta'
 
-  cesta.src = '../assets/ObraCivl/dinero.png'
+  cesta.src = '../assets/ObraCivl/caja-de-dinero.png'
   jugar.textContent = 'Jugar'
   pausar.textContent = 'Pausar'
   jugar.className = 'btn-obra'
