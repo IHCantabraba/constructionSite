@@ -5,11 +5,11 @@ let COUNT = 0
 let intervalo
 let pausado = true
 const excavadoras = [
-  { type: 'excavadora', src: './assets/ObraCivl/excavadora.png' },
-  { type: 'excavadora', src: './assets/ObraCivl/Hitachi.png' },
-  { type: 'excavadora', src: './assets/ObraCivl/pala.png' },
-  { type: 'excavadora', src: './assets/ObraCivl/take-1px.png' },
-  { type: 'excavadora', src: './assets/ObraCivl/take-2px.png' }
+  { type: 'excavadora', src: '../assets/ObraCivl/excavadora.png' },
+  { type: 'excavadora', src: '../assets/ObraCivl/Hitachi.png' },
+  { type: 'excavadora', src: '../assets/ObraCivl/pala.png' },
+  { type: 'excavadora', src: '../assets/ObraCivl/take-1px.png' },
+  { type: 'excavadora', src: '../assets/ObraCivl/take-2px.png' }
 ]
 
 /* random excavadora */
@@ -27,8 +27,7 @@ export const initObra = () => {
   const cesta = document.createElement('img')
   const dinero = document.createElement('img')
   dinero.className = 'produccion'
-  dinero.src =
-    'https://res.cloudinary.com/df7b0dj9r/image/upload/v1711281994/dinero_cd82xi.png'
+  dinero.src = '../assets/ObraCivl/dinero.png'
   const textoContador = document.createElement('h2')
 
   const jugar = document.createElement('button')
@@ -37,8 +36,7 @@ export const initObra = () => {
   textoContador.className = 'textoContador'
   cesta.className = 'cesta'
 
-  cesta.src =
-    'https://res.cloudinary.com/df7b0dj9r/image/upload/v1711281994/caja-de-dinero_fseap0.png'
+  cesta.src = '../assets/ObraCivl/dinero.png'
   jugar.textContent = 'Jugar'
   pausar.textContent = 'Pausar'
   jugar.className = 'btn-obra'
