@@ -27,7 +27,8 @@ export const initObra = () => {
   const cesta = document.createElement('img')
   const dinero = document.createElement('img')
   dinero.className = 'produccion'
-  dinero.src = './assets/ObraCivl/dinero.png'
+  dinero.src =
+    'https://res.cloudinary.com/df7b0dj9r/image/upload/v1711281994/dinero_cd82xi.png'
   const textoContador = document.createElement('h2')
 
   const jugar = document.createElement('button')
@@ -36,7 +37,8 @@ export const initObra = () => {
   textoContador.className = 'textoContador'
   cesta.className = 'cesta'
 
-  cesta.src = './assets/ObraCivl/caja-de-dinero.png'
+  cesta.src =
+    'https://res.cloudinary.com/df7b0dj9r/image/upload/v1711281994/caja-de-dinero_fseap0.png'
   jugar.textContent = 'Jugar'
   pausar.textContent = 'Pausar'
   jugar.className = 'btn-obra'
