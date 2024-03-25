@@ -16,6 +16,18 @@ body {
   height: 100%;
   background-color: rgb(192, 221, 231);
 }
+header {
+  height: var(--ihc-header-height);
+  margin-bottom: 10px;
+}
+footer {
+  height: var(--ihc-footer-height);
+}
+main {
+  min-height: calc(100vh - var(--ihc-header-height) - var(--ihc-footer-height));
+}
+
 .content {
-  margin: 10px 20px;
+  min-height: calc(100vh - var(--ihc-header-height) - var(--ihc-footer-height));
+  margin: 0px 20px;
 }
