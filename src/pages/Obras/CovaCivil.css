@@ -10,14 +10,6 @@ main {
   transition: all 0.5s;
 }
 
-.textoContador {
-  right: 1px;
-  bottom: 40px;
-  position: absolute;
-  z-index: 10000;
-  font-size: 30px;
-  width: 70px;
-}
 .score {
   color: rgb(214, 125, 98);
   font-weight: bold;
@@ -30,7 +22,7 @@ main {
 }
 .btn-obra {
   position: absolute;
-  top: 100px;
+  top: 120px;
   right: 20px;
   cursor: pointer;
   border-radius: 8px;
@@ -46,4 +38,14 @@ main {
   display: flex;
   flex-direction: row;
   align-self: flex-start;
+}
+@media (max-width: 700px) {
+  .btn-obra {
+    padding: 4px 10px;
+  }
+}
+@media (max-width: 480px) {
+  .current-partida {
+    font-size: 12px;
+  }
 }

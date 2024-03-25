@@ -1,15 +1,14 @@
 import './CovaCivil.css'
 let puntuacion = 0
 sessionStorage.setItem('puntuacion', puntuacion)
-let bestmark
-if (bestmark) {
-  localStorage.setItem('BestMark', bestmark)
-} else {
-  bestmark = 0
+let bestmark = Number(localStorage.getItem('BestMark'))
+if (bestmark && bestmark > 0) {
+  console.log(bestmark)
   localStorage.setItem('BestMark', bestmark)
 }
 
 /* contador de excavadoras clickadas */
+// import { COUNT } from '../../components/Footer/footer'
 let COUNT = 0
 /* intervalo para la velocidad de mostart excavadoras */
 let intervalo
@@ -26,6 +25,7 @@ const excavadoras = [
 /* generación del juego */
 export const initObra = () => {
   /* obtener el div de la app */
+  COUNT = 0
   const divApp = document.querySelector('#app')
   if (!document.querySelector('main')) {
     main = document.createElement('main')
@@ -35,13 +35,15 @@ export const initObra = () => {
   const divContent = document.querySelector('.content')
   /* vaciar al iniciar */
   divContent.innerHTML = ''
-
   /* crear los elementos del juego */
+  añadirContadores(divContent)
 
   /* añadir el h2 para mostrar el numero de excavadoras clickadas */
-  const textoContador = document.createElement('h2')
-  textoContador.textContent = COUNT
-  textoContador.className = 'textoContador'
+  if (document.querySelector('.textoContador')) {
+    const textoContador = document.querySelector('.textoContador')
+    textoContador.textContent = COUNT
+  }
+
   /* añadir audio */
   const audio = document.createElement('audio')
 
@@ -71,11 +73,15 @@ export const initObra = () => {
   divContent.append(jugar)
   divContent.append(pausar)
   divContent.append(audio)
-  divContent.append(textoContador)
+  // divContent.append(textoContador)
   main.append(divContent)
-  divApp.append(main)
+  divApp.insertBefore(main, document.querySelector('footer'))
 }
-
+/* exportar COUNT */
+// export const addInitalConunt = (COUNT) => {
+//   const contadorInicial = documnt.querySelector('.textoContador')
+//   contadorInicial.textContent = COUNT
+// }
 /* seleccionar una excavadora aleatoria */
 const NuevaObra = () => {
   const index = Math.round(Math.random() * 2)
@@ -99,7 +105,13 @@ const createObra = () => {
   imgPala.classList.add('ejecutar')
   /* una vez clickado sobre la imagen de la excavadora
   ejecutar la funcion que la envía al cerdito prepara la siguiente */
-  imgPala.addEventListener('click', (e) => EjecutarObra(e))
+  imgPala.addEventListener('click', (e) => {
+    EjecutarObra(e)
+    const money = document.querySelector('.produccion')
+    money.classList.remove('animation')
+    void money.offsetWidth
+    money.classList.add('animation')
+  })
   const iconObra = NuevaObra()
   imgPala.src = excavadoras[iconObra]['src']
   divContent.append(imgPala)
@@ -113,6 +125,7 @@ const EjecutarObra = (e) => {
   audio.volume = 0.1
   /* actualizar el número de excavadoras */
   COUNT++
+  console.log(COUNT)
   /* eliminar la clase "ejecutar" para no tenerla en cuenta en el recuento de 
   elementos en pantalla */
   e.target.classList.remove('ejecutar')
@@ -219,11 +232,61 @@ const toggleBtn = (jugar, pausar) => {
   if (pausado) {
     jugar.classList.add('show')
     pausar.classList.remove('show')
-    console.log(pausado)
   } else {
     pausar.classList.add('show')
     jugar.classList.remove('show')
-    // pausado = !pausado
-    console.log(pausado)
+  }
+}
+
+const añadirContadores = (divContent) => {
+  /* contenedor general para puntuaciones */
+  const punt = document.createElement('div')
+  punt.className = 'puntuacion'
+  /* contendores de puntuacion */
+  /* current (sesionStorage) */
+  const puntPartida = document.createElement('div')
+  puntPartida.className = 'current-partida'
+  /* título del marcador */
+  const puntTitle = document.createElement('h2')
+  puntTitle.textContent = 'Current-Score: '
+  puntPartida.append(puntTitle)
+  /* valor del marcador */
+  const score = document.createElement('h2')
+  score.id = 'current-score'
+  score.className = 'score'
+  score.textContent = sessionStorage.getItem('puntuacion')
+  puntPartida.append(score)
+  /* current (localStorage) */
+  const puntGlobal = document.createElement('div')
+  puntGlobal.className = 'current-partida'
+  /* best puntuacion (localstorage) */
+  const bestScore = document.createElement('h2')
+  bestScore.textContent = 'Best-Score: '
+  puntGlobal.append(bestScore)
+  const scoreB = document.createElement('h2')
+  scoreB.id = 'best-score'
+  scoreB.className = 'score'
+  scoreB.textContent = localStorage.getItem('BestMark')
+  puntGlobal.append(scoreB)
+
+  /* añadir al contenedor de puntuaciones */
+  punt.append(puntPartida)
+  punt.append(puntGlobal)
+  divContent.append(punt)
+  SetLastCounterValues()
+}
+
+const SetLastCounterValues = () => {
+  /* obtener el contador current-score*/
+  const currentScore = document.querySelector('#current-score')
+  /* resetear contador */
+  currentScore.textContent = 0
+  /* Obtener contador de best-score */
+  const globalScore = document.querySelector('#best-score')
+  /* obtener sesion score */
+  const SesionScore = sessionStorage.getItem('puntuacion')
+  /* si sesion score es mayor que la máxima putnuación global, entonces actualizar. */
+  if (!Number(globalScore.innerHTML) > Number(SesionScore)) {
+    globalScore.textContent = sessionStorage.getItem('puntuacion')
   }
 }

@@ -13,6 +13,14 @@
   width: 80px;
   height: 80px;
 }
+.textoContador {
+  right: 1px;
+  bottom: 40px;
+  position: absolute;
+  z-index: 10000;
+  font-size: 30px;
+  width: 70px;
+}
 .produccion {
   position: absolute;
   z-index: 9999;
@@ -21,14 +29,14 @@
   width: 40px;
   height: 40px;
 }
-.produccion.produced {
-  animation: upGoing 0.5s;
+.produccion.animation {
+  animation: giro 0.5s;
 }
-@keyframes upGoing {
+@keyframes giro {
   from {
-    transform: translateY(-140px);
+    transform: rotate(0deg);
   }
   to {
-    transform: translateY(-80px);
+    transform: rotate(360deg);
   }
 }

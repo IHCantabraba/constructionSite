@@ -2,7 +2,7 @@
 :root {
   --ihc-buton-text-size: 15px;
   --ihc-buton-Braduis: 15px;
-  --ihc-header-height: 150px;
+  --ihc-header-height: 100px;
   --ihc-footer-height: 150px;
 }
 * {
@@ -16,10 +16,7 @@ body {
   height: 100%;
   background-color: rgb(192, 221, 231);
 }
-header {
-  height: var(--ihc-header-height);
-  margin-bottom: 10px;
-}
+
 footer {
   height: var(--ihc-footer-height);
 }
