@@ -1,4 +1,5 @@
 import './CovaCivil.css'
+import { gameOver } from '../../components/GameOver/gameover'
 let puntuacion = 0
 sessionStorage.setItem('puntuacion', puntuacion)
 let bestmark = Number(localStorage.getItem('BestMark'))
@@ -8,7 +9,7 @@ if (bestmark && bestmark > 0) {
 }
 
 /* contador de excavadoras clickadas */
-// import { COUNT } from '../../components/Footer/footer'
+
 let COUNT = 0
 /* intervalo para la velocidad de mostart excavadoras */
 let intervalo
@@ -77,11 +78,7 @@ export const initObra = () => {
   main.append(divContent)
   divApp.insertBefore(main, document.querySelector('footer'))
 }
-/* exportar COUNT */
-// export const addInitalConunt = (COUNT) => {
-//   const contadorInicial = documnt.querySelector('.textoContador')
-//   contadorInicial.textContent = COUNT
-// }
+
 /* seleccionar una excavadora aleatoria */
 const NuevaObra = () => {
   const index = Math.round(Math.random() * 2)
@@ -166,9 +163,10 @@ const comprobarEjecucion = () => {
     sessionStorage.setItem('puntuacion', 0)
     const currentmar = document.querySelector('#current-score')
     currentmar.textContent = 0
-
-    alert('Te han superado las obras pendinetes de ejecutar')
+    // alert('Te han superado las obras pendinetes de ejecutar')
     clearInterval(intervalo)
+    /* TODO sustituir el alert por una ventana modal con GAME OVER y un botónd Play Again. */
+    gameOver()
   }
 }
 /* crear el incremento de la velocidad del juego
