@@ -21,9 +21,7 @@ let pausado = true
 const excavadoras = [
   { type: 'excavadora', src: '/assets/ObraCivl/excavadora.png' },
   { type: 'excavadora', src: '/assets/ObraCivl/Hitachi.png' },
-  { type: 'excavadora', src: '/assets/ObraCivl/pala.png' },
-  { type: 'excavadora', src: '/assets/ObraCivl/take-1px.png' },
-  { type: 'excavadora', src: '/assets/ObraCivl/take-2px.png' }
+  { type: 'excavadora', src: '/assets/ObraCivl/pala.png' }
 ]
 /* generación del juego */
 export const initObra = () => {
@@ -80,7 +78,7 @@ export const initObra = () => {
 
 /* seleccionar una excavadora aleatoria */
 const NuevaObra = () => {
-  const index = Math.round(Math.random() * 4)
+  const index = Math.round(Math.random() * 2)
   return index
 }
 /* creaer los elementos de una partida */

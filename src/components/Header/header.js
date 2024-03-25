@@ -48,7 +48,11 @@ export const Header = (divApp) => {
   btnCivl.textContent = 'Ejecutar Obras'
 
   buttonPpt.addEventListener('click', initPpt)
-  btnCivl.addEventListener('click', initObra)
+  btnCivl.addEventListener('click', () => {
+    const currentScore = document.querySelector('#current-score')
+    currentScore.textContent = 0
+    initObra()
+  })
   /* add button to header */
 
   buttonsDiv.append(buttonPpt)
