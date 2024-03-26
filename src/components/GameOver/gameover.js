@@ -41,7 +41,7 @@ export const gameOver = () => {
   divApp.append(modalOverlay)
 }
 
-const createDiv = (clas, id = '') => {
+export const createDiv = (clas, id = '') => {
   const div = document.createElement('div')
   div.className = clas
   if (!id === '') {

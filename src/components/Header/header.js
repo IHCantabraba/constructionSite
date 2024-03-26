@@ -1,5 +1,5 @@
 import { initObra, toggleBtn } from '../../pages/Obras/CovaCivil'
-import { initPpt } from '../../pages/Ppt/ppt'
+import { initBoard } from '../../pages/TicTacToe/TicTacToe'
 import { footer } from '../../components/Footer/footer'
 import './header_style.css'
 
@@ -15,16 +15,28 @@ export const Header = (divApp) => {
   const btnCivl = document.createElement('button')
 
   /* add  text to buttons  */
-  buttonPpt.textContent = 'Tren en raya'
+  buttonPpt.textContent = 'Tres en raya'
   btnCivl.textContent = 'Ejecutar Obras'
   btnCivl.title = 'Grab the excavators'
   btnCivl.setAttribute('data-toggle', 'tooltip')
   btnCivl.setAttribute('data-placement', 'bottom')
   /* iniciar página piedra papel tijera */
   buttonPpt.addEventListener('click', () => {
-    const excvFooter = document.querySelector('.footer')
-    excvFooter.classList.toggle('hide')
-    initPpt()
+    if (document.querySelector('.footer')) {
+      const excvFooter = document.querySelector('.footer')
+      const excContent = document.querySelector('.puntuacion')
+      const jugar = document.querySelector('.btn-obra')
+      const pausar = document.querySelector('.btn-obra')
+      excvFooter.classList.toggle('hide')
+      excContent.classList.toggle('hide')
+      if (jugar.classList.contains('show')) {
+        jugar.classList.toggle('show')
+      }
+      if (pausar.classList.contains('show')) {
+        pausar.classList.toggle('show')
+      }
+      initBoard()
+    }
   })
 
   /* iniciar página excavadoras */
