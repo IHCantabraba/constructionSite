@@ -20,7 +20,7 @@
   align-items: flex-start;
   justify-content: center;
   gap: var(--ihc-gap-default);
-  max-width: 18%;
+
   border-radius: 5%;
   /* background-color: rgb(180, 179, 179); */
   filter: drop-shadow(5px 6px 10px #000000);
@@ -56,7 +56,7 @@
 .board {
   position: fixed;
   display: grid;
-  top: 50%;
+  top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
   justify-content: center;

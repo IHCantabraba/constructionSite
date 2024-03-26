@@ -25,9 +25,61 @@ let ScoreX = sessionStorage.getItem('Xscore')
 let ScoreO = sessionStorage.getItem('Oscore')
 let Drawns = sessionStorage.getItem('Drawns')
 let Totals = sessionStorage.getItem('Totals')
+
 export const initBoard = () => {
   /* obtener el div de la app */
   const appContect = document.querySelector('.content')
+
+  createBoard()
+  appContect.append(createResultsDiv())
+  appContect.append(createBoard())
+  if (!document.querySelector('.winning-msg')) {
+    ShowWinner()
+  }
+  startGame()
+
+  const cellEments = document.querySelectorAll('.cell')
+
+  cellEments.forEach((cell) => {
+    cell.addEventListener('click', handleClick, { once: true })
+  })
+
+  /* reset entire game */
+  const restartBtn = document.getElementById('restartBtn')
+  const modalMsg = document.querySelector('.winning-msg')
+  modalMsg.classList.toggle('hide')
+  restartBtn.addEventListener('click', () => {
+    startGame()
+  })
+}
+/* crear tablero */
+function createBoard() {
+  /* create board */
+  const board = createDiv('board')
+  board.classList.add('hide')
+  const cell0_0 = createDiv('cell', '0_0')
+  const cell0_1 = createDiv('cell', '0_1')
+  const cell0_2 = createDiv('cell', '0_2')
+  const cell1_0 = createDiv('cell', '1_0')
+  const cell1_1 = createDiv('cell', '1_1')
+  const cell1_2 = createDiv('cell', '1_2')
+  const cell2_0 = createDiv('cell', '2_0')
+  const cell2_1 = createDiv('cell', '2_1')
+  const cell2_2 = createDiv('cell', '2_2')
+
+  board.append(cell0_0)
+  board.append(cell0_1)
+  board.append(cell0_2)
+  board.append(cell1_0)
+  board.append(cell1_1)
+  board.append(cell1_2)
+  board.append(cell2_0)
+  board.append(cell2_1)
+  board.append(cell2_2)
+  return board
+}
+/* crear la parte del los resultados */
+function createResultsDiv() {
   /* Div general */
   const GeneralDiv = createDiv('general-vid')
   /* crear div para contadores de partidas */
@@ -73,7 +125,7 @@ export const initBoard = () => {
   resultDivTotalText.className = 'total-games'
   const resultDivTotalValue = document.createElement('p')
   resultDivTotalValue.className = 'result-count-total-value'
-  resultDivTotalValue.textContent = ScoreO
+  resultDivTotalValue.textContent = Totals
 
   resultsDivTotals.append(resultDivTotalText)
   resultsDivTotals.append(resultDivTotalValue)
@@ -83,49 +135,9 @@ export const initBoard = () => {
   resultsDiv.append(resultsDivdrawns)
   GeneralDiv.append(resultsDiv)
   GeneralDiv.append(resultsDivTotals)
-  /* create board */
-  const board = createDiv('board')
-  board.classList.add('hide')
-  const cell0_0 = createDiv('cell', '0_0')
-  const cell0_1 = createDiv('cell', '0_1')
-  const cell0_2 = createDiv('cell', '0_2')
-  const cell1_0 = createDiv('cell', '1_0')
-  const cell1_1 = createDiv('cell', '1_1')
-  const cell1_2 = createDiv('cell', '1_2')
-  const cell2_0 = createDiv('cell', '2_0')
-  const cell2_1 = createDiv('cell', '2_1')
-  const cell2_2 = createDiv('cell', '2_2')
-
-  board.append(cell0_0)
-  board.append(cell0_1)
-  board.append(cell0_2)
-  board.append(cell1_0)
-  board.append(cell1_1)
-  board.append(cell1_2)
-  board.append(cell2_0)
-  board.append(cell2_1)
-  board.append(cell2_2)
-  appContect.append(GeneralDiv)
-  appContect.append(board)
-  if (!document.querySelector('.winning-msg')) {
-    ShowWinner()
-  }
-  startGame()
-
-  const cellEments = document.querySelectorAll('.cell')
-
-  cellEments.forEach((cell) => {
-    cell.addEventListener('click', handleClick, { once: true })
-  })
-
-  /* reset entire game */
-  const restartBtn = document.getElementById('restartBtn')
-  const modalMsg = document.querySelector('.winning-msg')
-  modalMsg.classList.toggle('hide')
-  restartBtn.addEventListener('click', () => {
-    startGame()
-  })
+  return GeneralDiv
 }
+/* inicializar juego */
 function startGame() {
   circleTurn = false
   cellElements = document.querySelectorAll('.cell')
@@ -139,6 +151,7 @@ function startGame() {
   const winninMsgText = document.querySelector('.winning-msg')
   winninMsgText.classList.toggle('hide')
 }
+/* en cada click asignar clase a la casilla (x, o) */
 function handleClick(e) {
   const cell = e.target
   const currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS
@@ -154,6 +167,7 @@ function handleClick(e) {
     setBoardHoverClasss()
   }
 }
+/* al finalizar la partida mostrar el modal */
 function endGame(draw) {
   const winninMsgText = document.querySelector('.data-winning-msg-text')
   const totalDraws = document.querySelector('.result-count-drawn-value')
@@ -196,6 +210,7 @@ function endGame(draw) {
     }
   }
 }
+/* identificar si hay empate */
 function isDraw() {
   return [...cellElements].every((cell) => {
     return (
@@ -203,12 +218,15 @@ function isDraw() {
     )
   })
 }
+/* asignar clase a la casilla */
 function placeMarker(cell, currentClass) {
   cell.classList.add(currentClass)
 }
+/* cambiar los turnos */
 function swapTurns() {
   circleTurn = !circleTurn
 }
+/* mostrar en la casilla seleccionada el objeto que se va a pintar si se hace click */
 function setBoardHoverClasss() {
   const board = document.querySelector('.board')
   board.classList.remove(X_CLASS)
@@ -219,6 +237,7 @@ function setBoardHoverClasss() {
     board.classList.add(X_CLASS)
   }
 }
+/* cmoprobar quién ha ganado */
 function checkWin(currentClass) {
   return WINNING_COMBINATIONS.some((combination) => {
     return combination.every((index) => {
