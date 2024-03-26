@@ -16,6 +16,7 @@ const WINNING_COMBINATIONS = [
   [0, 4, 8],
   [2, 4, 6]
 ]
+/* local and sesion storage */
 export const initBoard = () => {
   /* obtener el div de la app */
   const appContect = document.querySelector('.content')
