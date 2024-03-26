@@ -1,5 +1,6 @@
 import './CovaCivil.css'
 import { gameOver } from '../../components/GameOver/gameover'
+//
 let puntuacion = 0
 sessionStorage.setItem('puntuacion', puntuacion)
 let bestmark = Number(localStorage.getItem('BestMark'))
@@ -28,6 +29,7 @@ export const initObra = () => {
   /* obtener el div de la app */
   COUNT = 0
   const divApp = document.querySelector('#app')
+  // footer(divApp)
   if (!document.querySelector('main')) {
     main = document.createElement('main')
   } else {
@@ -52,10 +54,12 @@ export const initObra = () => {
   const jugar = document.createElement('button')
   jugar.textContent = 'Jugar'
   jugar.className = 'btn-obra'
+  jugar.id = 'jugar'
 
   const pausar = document.createElement('button')
   pausar.textContent = 'Pausar'
   pausar.className = 'btn-obra'
+  pausar.id = 'pausar'
   /* eventlistener para modificar a clase "show" que hará que se muestre un botón u otro */
   jugar.addEventListener('click', () => {
     pausado = !pausado
@@ -67,9 +71,6 @@ export const initObra = () => {
     toggleBtn(jugar, pausar)
     clearInterval(intervalo)
   })
-  /* instanciar la funcion para mostrar el 
-  botón de jugar pausado(false) */
-  toggleBtn(jugar, pausar)
   /* añadir al contenedor los botones e imágenes */
   divContent.append(jugar)
   divContent.append(pausar)
@@ -151,7 +152,7 @@ const repirtarTexto = (count) => {
 const comprobarEjecucion = () => {
   const SinEjecutar = document.querySelectorAll('.ejecutar')
 
-  if (SinEjecutar.length > 200) {
+  if (SinEjecutar.length > 50) {
     /* obtener la puntuacion actual */
     const current = sessionStorage.getItem('puntuacion')
     /* obtener el contador general */
@@ -226,7 +227,7 @@ const iniciarJuego = () => {
 }
 
 /* añadir o quitar la clase "show" en función del valor true/false de "let pausado" */
-const toggleBtn = (jugar, pausar) => {
+export const toggleBtn = (jugar, pausar) => {
   if (pausado) {
     jugar.classList.add('show')
     pausar.classList.remove('show')
@@ -240,6 +241,7 @@ const añadirContadores = (divContent) => {
   /* contenedor general para puntuaciones */
   const punt = document.createElement('div')
   punt.className = 'puntuacion'
+  punt.classList.add('hide')
   /* contendores de puntuacion */
   /* current (sesionStorage) */
   const puntPartida = document.createElement('div')

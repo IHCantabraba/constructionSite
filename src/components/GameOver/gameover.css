@@ -2,7 +2,7 @@
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -59%);
+  transform: translate(-50%, -50%);
   border: 1px solid black;
   border-radius: 10px;
   z-index: 1000001;
@@ -35,7 +35,7 @@
   bottom: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.3);
-  pointer-events: none;
+  /* pointer-events: none; */
 }
 .overlay.hide {
   display: none;
@@ -59,10 +59,14 @@
   cursor: pointer;
   outline: none;
   padding: 3px 6px;
-  background-color: rgb(230, 80, 80);
+  /* background-color: rgb(230, 80, 80); */
   border-radius: 4px;
+  color: withe;
 }
 
 .modal.hide {
+  display: none;
+}
+.footer.hide {
   display: none;
 }

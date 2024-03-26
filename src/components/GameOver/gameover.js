@@ -29,12 +29,8 @@ export const gameOver = () => {
     initObra()
     modalDiv.classList.toggle('hide')
     modalOverlay.classList.toggle('hide')
-
-    // if (!modalOverlay.classList.contains('hide')) {
-    //   modalOverlay.classList.toggle('hide')
-    //   modalDiv.classList.toggle('hide')
-    // }
   })
+  modalCloseBtn.addEventListener('click', () => {})
   modalHeaderDiv.append(modalTilte)
   modalHeaderDiv.append(modalCloseBtn)
   modalDiv.append(modalHeaderDiv)

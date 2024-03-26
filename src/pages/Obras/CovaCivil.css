@@ -20,6 +20,9 @@ main {
   align-self: flex-start;
   margin-top: 20px;
 }
+.puntuacion.hide {
+  display: none;
+}
 .btn-obra {
   position: absolute;
   top: 120px;

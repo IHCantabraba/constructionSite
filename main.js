@@ -10,4 +10,3 @@ divContent.className = 'content'
 Header(divApp)
 divApp.append(divContent)
 initObra()
-footer(divApp)
