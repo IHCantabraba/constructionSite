@@ -6,6 +6,7 @@
   --ihc-footer-height: 150px;
   --ihc-cell-size: 100px;
   --ihc-mark-size: calc(var(--ihc-cell-size) * 0.9);
+  --ihc-gap-default: 5px;
 }
 * {
   margin: 0;

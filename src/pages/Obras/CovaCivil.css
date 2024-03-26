@@ -19,6 +19,7 @@ main {
   flex-direction: column;
   align-self: flex-start;
   margin-top: 20px;
+  filter: drop-shadow(5px 6px 6px #000000);
 }
 .puntuacion.hide {
   display: none;
@@ -33,6 +34,14 @@ main {
   background-color: transparent;
   border: 3px solid black;
   display: none;
+}
+#jugar:hover {
+  background-color: rgb(106, 242, 124);
+  transform: scale(1.1);
+}
+#pausar:hover {
+  background-color: rgb(226, 176, 82);
+  transform: scale(1.1);
 }
 .show {
   display: block;

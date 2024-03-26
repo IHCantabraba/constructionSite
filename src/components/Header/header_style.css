@@ -15,11 +15,16 @@ header button {
   cursor: pointer;
   /* margin-top: 20px; */
 }
+header button:hover {
+  background-color: rgb(226, 176, 82);
+  transform: scale(1.1);
+}
 .Butonsdiv {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  gap: 15px;
 }
 
 @media (max-width: 480px) {

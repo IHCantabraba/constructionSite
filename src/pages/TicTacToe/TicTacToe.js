@@ -16,11 +16,73 @@ const WINNING_COMBINATIONS = [
   [0, 4, 8],
   [2, 4, 6]
 ]
-/* local and sesion storage */
+/* sesion storage */
+sessionStorage.setItem('Xscore', 0)
+sessionStorage.setItem('Oscore', 0)
+sessionStorage.setItem('Drawns', 0)
+sessionStorage.setItem('Totals', 0)
+let ScoreX = sessionStorage.getItem('Xscore')
+let ScoreO = sessionStorage.getItem('Oscore')
+let Drawns = sessionStorage.getItem('Drawns')
+let Totals = sessionStorage.getItem('Totals')
 export const initBoard = () => {
   /* obtener el div de la app */
   const appContect = document.querySelector('.content')
+  /* Div general */
+  const GeneralDiv = createDiv('general-vid')
+  /* crear div para contadores de partidas */
+  const resultsDiv = createDiv('results-div')
 
+  /* crear div para ganados por X */
+  const resultsDivX = createDiv('results-div-x')
+  const resultCountXTitle = document.createElement('p')
+  resultCountXTitle.textContent = 'X - won: '
+  resultCountXTitle.className = 'Xtext'
+  const resultCountXvalue = document.createElement('p')
+  resultCountXvalue.className = 'result-count-x-value'
+  resultCountXvalue.textContent = ScoreX
+  resultsDivX.append(resultCountXTitle)
+  resultsDivX.append(resultCountXvalue)
+
+  /* crear div paraganados por Y */
+  const resultsDivO = createDiv('results-div-y')
+  const resultCountOTitle = document.createElement('p')
+  resultCountOTitle.textContent = 'O - won: '
+  resultCountOTitle.className = 'Otext'
+  const resultCountOValue = document.createElement('p')
+  resultCountOValue.className = 'result-count-o-value'
+  resultCountOValue.textContent = ScoreO
+  resultsDivO.append(resultCountOTitle)
+  resultsDivO.append(resultCountOValue)
+  /* empates */
+  const resultsDivdrawns = createDiv('result-drawns')
+  const resultCountDrownTitle = document.createElement('p')
+  resultCountDrownTitle.textContent = 'Drawns: '
+  resultCountDrownTitle.className = 'Drawntext'
+  const resultCountDrawnValue = document.createElement('p')
+  resultCountDrawnValue.className = 'result-count-drawn-value'
+  resultCountDrawnValue.textContent = Drawns
+
+  resultsDivdrawns.append(resultCountDrownTitle)
+  resultsDivdrawns.append(resultCountDrawnValue)
+  /* recuento total Partidas */
+
+  const resultsDivTotals = createDiv('result-totals')
+  const resultDivTotalText = document.createElement('p')
+  resultDivTotalText.textContent = 'Games: '
+  resultDivTotalText.className = 'total-games'
+  const resultDivTotalValue = document.createElement('p')
+  resultDivTotalValue.className = 'result-count-total-value'
+  resultDivTotalValue.textContent = ScoreO
+
+  resultsDivTotals.append(resultDivTotalText)
+  resultsDivTotals.append(resultDivTotalValue)
+  /* añadir los div de reslt-x e Y ald div results */
+  resultsDiv.append(resultsDivX)
+  resultsDiv.append(resultsDivO)
+  resultsDiv.append(resultsDivdrawns)
+  GeneralDiv.append(resultsDiv)
+  GeneralDiv.append(resultsDivTotals)
   /* create board */
   const board = createDiv('board')
   board.classList.add('hide')
@@ -29,7 +91,6 @@ export const initBoard = () => {
   const cell0_2 = createDiv('cell', '0_2')
   const cell1_0 = createDiv('cell', '1_0')
   const cell1_1 = createDiv('cell', '1_1')
-
   const cell1_2 = createDiv('cell', '1_2')
   const cell2_0 = createDiv('cell', '2_0')
   const cell2_1 = createDiv('cell', '2_1')
@@ -44,6 +105,7 @@ export const initBoard = () => {
   board.append(cell2_0)
   board.append(cell2_1)
   board.append(cell2_2)
+  appContect.append(GeneralDiv)
   appContect.append(board)
   if (!document.querySelector('.winning-msg')) {
     ShowWinner()
@@ -94,14 +156,44 @@ function handleClick(e) {
 }
 function endGame(draw) {
   const winninMsgText = document.querySelector('.data-winning-msg-text')
+  const totalDraws = document.querySelector('.result-count-drawn-value')
+  const modalWin = document.querySelector('.winning-msg')
+  const scoreO = document.querySelector('.result-count-o-value')
+  const scoreX = document.querySelector('.result-count-x-value')
+  const totalGames = document.querySelector('.result-count-total-value')
+
   if (draw) {
     winninMsgText.textContent = 'Draw!'
     const modalWin = document.querySelector('.winning-msg')
     modalWin.classList.toggle('hide')
+    sessionStorage.setItem(
+      'Drawns',
+      Number(sessionStorage.getItem('Drawns')) + 1
+    )
+    sessionStorage.setItem(
+      'Totals',
+      Number(sessionStorage.getItem('Totals')) + 1
+    )
+    totalDraws.innerHTML = sessionStorage.getItem('Drawns')
+    totalGames.innerHTML = sessionStorage.getItem('Totals')
   } else {
     winninMsgText.textContent = `${circleTurn ? "O's" : "X's"} Wins!`
-    const modalWin = document.querySelector('.winning-msg')
     modalWin.classList.toggle('hide')
+    sessionStorage.setItem(
+      'Totals',
+      Number(sessionStorage.getItem('Totals')) + 1
+    )
+    totalGames.innerHTML = sessionStorage.getItem('Totals')
+    if (!circleTurn) {
+      sessionStorage.setItem(
+        'Xscore',
+        Number(sessionStorage.getItem('Xscore')) + 1
+      )
+      scoreX.innerHTML = sessionStorage.getItem('Xscore')
+    } else {
+      sessionStorage.setItem('Oscore', 1)
+      scoreO.innerHTML = sessionStorage.getItem('Oscore')
+    }
   }
 }
 function isDraw() {
