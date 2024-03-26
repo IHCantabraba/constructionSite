@@ -27,6 +27,7 @@ export const gameOver = () => {
    */
   modalRestartBtn.addEventListener('click', () => {
     initObra()
+
     modalDiv.classList.toggle('hide')
     modalOverlay.classList.toggle('hide')
   })

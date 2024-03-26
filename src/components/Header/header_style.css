@@ -11,9 +11,11 @@ header button {
   border-radius: 8px;
   font-size: 25px;
   background-color: rgb(236, 204, 145);
-  border: 3px solid black;
+  border: none; /*3px solid black*/
   cursor: pointer;
+  font-weight: bold;
   /* margin-top: 20px; */
+  filter: drop-shadow(5px 6px 10px #000000);
 }
 header button:hover {
   background-color: rgb(226, 176, 82);

@@ -31,9 +31,11 @@ main {
   cursor: pointer;
   border-radius: 8px;
   padding: 10px 20px;
-  background-color: transparent;
-  border: 3px solid black;
+  background-color: rgb(160, 157, 157);
+  border: none;
   display: none;
+  font-weight: bold;
+  filter: drop-shadow(1px 4px 5px black);
 }
 #jugar:hover {
   background-color: rgb(106, 242, 124);

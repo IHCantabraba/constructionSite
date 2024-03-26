@@ -97,8 +97,8 @@ const createObra = () => {
   let left = Math.random() * (window.innerWidth - 100)
   let top = Math.random() * (window.innerHeight - 200)
 
-  imgPala.style.top = `${top + 150}px`
-  imgPala.style.left = `${left}px`
+  imgPala.style.top = `${top + 180}px`
+  imgPala.style.left = `${left - 20}px`
   imgPala.style.transform = `rotate(${Math.random() * 360}deg)`
   imgPala.classList.add('ejecutar')
   /* una vez clickado sobre la imagen de la excavadora
@@ -123,7 +123,7 @@ const EjecutarObra = (e) => {
   audio.volume = 0.1
   /* actualizar el número de excavadoras */
   COUNT++
-  console.log(COUNT)
+
   /* eliminar la clase "ejecutar" para no tenerla en cuenta en el recuento de 
   elementos en pantalla */
   e.target.classList.remove('ejecutar')
