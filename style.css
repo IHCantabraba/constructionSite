@@ -4,6 +4,8 @@
   --ihc-buton-Braduis: 15px;
   --ihc-header-height: 100px;
   --ihc-footer-height: 150px;
+  --ihc-cell-size: 100px;
+  --ihc-mark-size: calc(var(--ihc-cell-size) * 0.9);
 }
 * {
   margin: 0;

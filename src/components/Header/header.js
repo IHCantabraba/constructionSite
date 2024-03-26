@@ -11,36 +11,57 @@ export const Header = (divApp) => {
   const buttonsDiv = document.createElement('div')
   buttonsDiv.className = 'Butonsdiv'
   /* crear botones de juevo piedra.. y excavadoras */
-  const buttonPpt = document.createElement('button')
+  const buttonTicTac = document.createElement('button')
   const btnCivl = document.createElement('button')
 
   /* add  text to buttons  */
-  buttonPpt.textContent = 'Tres en raya'
+  buttonTicTac.textContent = 'Tres en raya'
   btnCivl.textContent = 'Ejecutar Obras'
   btnCivl.title = 'Grab the excavators'
   btnCivl.setAttribute('data-toggle', 'tooltip')
   btnCivl.setAttribute('data-placement', 'bottom')
+
   /* iniciar página piedra papel tijera */
-  buttonPpt.addEventListener('click', () => {
+  buttonTicTac.addEventListener('click', () => {
+    /* eliminar footer */
     if (document.querySelector('.footer')) {
       const excvFooter = document.querySelector('.footer')
       const excContent = document.querySelector('.puntuacion')
       const jugar = document.querySelector('.btn-obra')
       const pausar = document.querySelector('.btn-obra')
-      excvFooter.classList.toggle('hide')
-      excContent.classList.toggle('hide')
+      if (!excvFooter.classList.contains('hide')) {
+        excvFooter.classList.toggle('hide')
+      }
+      if (!excContent.classList.contains('hide')) {
+        excContent.classList.toggle('hide')
+      }
       if (jugar.classList.contains('show')) {
-        jugar.classList.toggle('show')
+        jugar.classList.remove('show')
       }
       if (pausar.classList.contains('show')) {
-        pausar.classList.toggle('show')
+        pausar.classList.remove('show')
       }
+    }
+    if (!document.querySelector('.board')) {
       initBoard()
+    }
+    if (document.querySelector('.board')) {
+      const board = document.querySelector('.board')
+      if (board.classList.contains('hide')) {
+        board.classList.remove('hide')
+      }
     }
   })
 
   /* iniciar página excavadoras */
   btnCivl.addEventListener('click', () => {
+    /* eliminar lor elativo al juego anterior */
+    if (document.querySelector('board')) {
+      const board = document.querySelector('board')
+      if (!board.classList.contains('hide')) {
+        board.classList.add('hide')
+      }
+    }
     initObra()
     const jugar = document.querySelector('#jugar')
     const pausar = document.querySelector('#pausar')
@@ -57,7 +78,7 @@ export const Header = (divApp) => {
   })
   /* add button to header */
 
-  buttonsDiv.append(buttonPpt)
+  buttonsDiv.append(buttonTicTac)
   buttonsDiv.append(btnCivl)
   header.append(buttonsDiv)
   // header.append(punt)
