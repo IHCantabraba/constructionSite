@@ -1,4 +1,4 @@
-import { createDiv } from './CreateDiv'
+import { createDiv } from '../CreateDiv'
 
 export function createResultsDiv(ScoreX, ScoreO, Drawns, Totals) {
   /* Div general */

@@ -1,7 +1,6 @@
-import { ShowWinner } from '../../components/GameOver/TicTacTowModal'
-import { createBoard } from '../../components/utils/CreateBoard,js'
-import { createDiv } from '../../components/utils/CreateDiv'
-import { createResultsDiv } from '../../components/utils/createResultsDiv'
+import { ShowWinner } from '../../components/TicTacModal/TicTacTowModal'
+import { createBoard } from '../../components/utils/Board/CreateBoard,js'
+import { createResultsDiv } from '../../components/utils/ResultsContainer/createResultsDiv'
 
 import './TicTacToe.css'
 /* determinar el turno */
