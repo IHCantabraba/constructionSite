@@ -26,20 +26,36 @@ export const gameOver = () => {
   /* TODO implementar event listener para los botones de la ventana Game Over
    */
   modalRestartBtn.addEventListener('click', () => {
-    initObra()
-
     modalDiv.classList.toggle('hide')
     modalOverlay.classList.toggle('hide')
+    // const main = document.querySelector('main')
+    // main.innerHTML = ''
+    initObra()
   })
-  modalCloseBtn.addEventListener('click', () => {})
+  // modalCloseBtn.addEventListener('click', () => {})
   modalHeaderDiv.append(modalTilte)
   modalHeaderDiv.append(modalCloseBtn)
   modalDiv.append(modalHeaderDiv)
   modalDiv.append(modalRestartBtn)
-  const footer = document.querySelector('.footer')
 
-  divApp.append(modalDiv, footer)
-  divApp.append(modalOverlay)
+  /* ocultar la ventana modal */
+  if (!document.querySelector('.modal')) {
+    divApp.append(modalDiv)
+  } else if (document.querySelector('.modal')) {
+    const mod = document.querySelector('.modal')
+    if (mod.classList.contains('hide')) {
+      mod.classList.remove('hide')
+    }
+  }
+  /* esconder la ventana overlay */
+  if (!document.querySelector('.overlay')) {
+    divApp.append(modalOverlay)
+  } else if (document.querySelector('.overlay')) {
+    const mod = document.querySelector('.overlay')
+    if (mod.classList.contains('hide')) {
+      mod.classList.remove('hide')
+    }
+  }
 }
 
 export const createDiv = (clas, id = '') => {

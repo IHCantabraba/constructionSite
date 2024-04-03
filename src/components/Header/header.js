@@ -27,8 +27,8 @@ export const Header = (divApp) => {
     if (document.querySelector('.footer')) {
       const excvFooter = document.querySelector('.footer')
       const excContent = document.querySelector('.puntuacion')
-      const jugar = document.querySelector('.btn-obra')
-      const pausar = document.querySelector('.btn-obra')
+      const jugar = document.querySelector('.btn-jugar')
+      const pausar = document.querySelector('.btn-pausar')
       if (!excvFooter.classList.contains('hide')) {
         excvFooter.classList.toggle('hide')
       }
@@ -55,18 +55,20 @@ export const Header = (divApp) => {
 
   /* iniciar página excavadoras */
   btnCivl.addEventListener('click', () => {
-    /* eliminar lor elativo al juego anterior */
-    if (document.querySelector('board')) {
-      const board = document.querySelector('board')
+    /* eliminar lo relativo al juego anterior si existe */
+    if (document.querySelector('.board')) {
+      const board = document.querySelector('.board')
       if (!board.classList.contains('hide')) {
         board.classList.add('hide')
       }
     }
+    /* mostrar boto jugar, y contadores */
     initObra()
+    /* añadir clase para mostrar botón jugar y ocultar botón pausar */
     const jugar = document.querySelector('#jugar')
     const pausar = document.querySelector('#pausar')
-
     toggleBtn(jugar, pausar)
+    /* si hay un footer ne el DOM se mujestra y sino, se añade uno. */
     if (document.querySelector('.footer')) {
       const footer = document.querySelector('.footer')
       footer.classList.remove('hide')

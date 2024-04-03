@@ -5,7 +5,6 @@ let puntuacion = 0
 sessionStorage.setItem('puntuacion', puntuacion)
 let bestmark = Number(localStorage.getItem('BestMark'))
 if (bestmark && bestmark > 0) {
-  console.log(bestmark)
   localStorage.setItem('BestMark', bestmark)
 }
 
@@ -26,8 +25,9 @@ const excavadoras = [
 ]
 /* generación del juego */
 export const initObra = () => {
-  /* obtener el div de la app */
+  // pausado = true
   COUNT = 0
+  /* obtener el div de la app */
   const divApp = document.querySelector('#app')
   // footer(divApp)
   if (!document.querySelector('main')) {
@@ -42,10 +42,12 @@ export const initObra = () => {
   añadirContadores(divContent)
 
   /* añadir el h2 para mostrar el numero de excavadoras clickadas */
+  /* o si existen resetear os elementos. */
   if (document.querySelector('.textoContador')) {
     const textoContador = document.querySelector('.textoContador')
     textoContador.textContent = COUNT
   }
+  /* mostrar contadores  */
 
   /* añadir audio */
   const audio = document.createElement('audio')
@@ -53,12 +55,12 @@ export const initObra = () => {
   /* crear botones de jugar y pausar */
   const jugar = document.createElement('button')
   jugar.textContent = 'Jugar'
-  jugar.className = 'btn-obra'
+  jugar.className = 'btn-jugar'
   jugar.id = 'jugar'
 
   const pausar = document.createElement('button')
   pausar.textContent = 'Pausar'
-  pausar.className = 'btn-obra'
+  pausar.className = 'btn-pausar'
   pausar.id = 'pausar'
   /* eventlistener para modificar a clase "show" que hará que se muestre un botón u otro */
   jugar.addEventListener('click', () => {
@@ -77,7 +79,9 @@ export const initObra = () => {
   divContent.append(audio)
   // divContent.append(textoContador)
   main.append(divContent)
-  divApp.insertBefore(main, document.querySelector('footer'))
+  if (!document.querySelector('footer')) {
+    divApp.insertBefore(main, document.querySelector('footer'))
+  }
 }
 
 /* seleccionar una excavadora aleatoria */
@@ -101,6 +105,7 @@ const createObra = () => {
   imgPala.style.left = `${left - 20}px`
   imgPala.style.transform = `rotate(${Math.random() * 360}deg)`
   imgPala.classList.add('ejecutar')
+
   /* una vez clickado sobre la imagen de la excavadora
   ejecutar la funcion que la envía al cerdito prepara la siguiente */
   imgPala.addEventListener('click', (e) => {
@@ -152,7 +157,7 @@ const repirtarTexto = (count) => {
 const comprobarEjecucion = () => {
   const SinEjecutar = document.querySelectorAll('.ejecutar')
 
-  if (SinEjecutar.length > 50) {
+  if (SinEjecutar.length > 10) {
     /* obtener la puntuacion actual */
     const current = sessionStorage.getItem('puntuacion')
     /* obtener el contador general */

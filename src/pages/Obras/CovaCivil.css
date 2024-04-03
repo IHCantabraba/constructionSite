@@ -24,7 +24,8 @@ main {
 .puntuacion.hide {
   display: none;
 }
-.btn-obra {
+.btn-jugar,
+.btn-pausar {
   position: absolute;
   top: 120px;
   right: 20px;
@@ -54,7 +55,8 @@ main {
   align-self: flex-start;
 }
 @media (max-width: 700px) {
-  .btn-obra {
+  .btn-jugar,
+  .btn-pausar {
     padding: 4px 10px;
   }
 }
