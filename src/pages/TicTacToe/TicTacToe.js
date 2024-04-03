@@ -1,5 +1,8 @@
 import { ShowWinner } from '../../components/GameOver/TicTacTowModal'
-import { createDiv } from '../../components/GameOver/gameover'
+import { createBoard } from '../../components/utils/CreateBoard,js'
+import { createDiv } from '../../components/utils/CreateDiv'
+import { createResultsDiv } from '../../components/utils/createResultsDiv'
+
 import './TicTacToe.css'
 /* determinar el turno */
 let circleTurn
@@ -30,9 +33,9 @@ export const initBoard = () => {
   /* obtener el div de la app */
   const appContect = document.querySelector('.content')
 
-  createBoard()
-  appContect.append(createResultsDiv())
+  appContect.append(createResultsDiv(ScoreX, ScoreO, Drawns, Totals))
   appContect.append(createBoard())
+
   if (!document.querySelector('.winning-msg')) {
     ShowWinner()
   }
@@ -52,91 +55,7 @@ export const initBoard = () => {
     startGame()
   })
 }
-/* crear tablero */
-function createBoard() {
-  /* create board */
-  const board = createDiv('board')
-  board.classList.add('hide')
-  const cell0_0 = createDiv('cell', '0_0')
-  const cell0_1 = createDiv('cell', '0_1')
-  const cell0_2 = createDiv('cell', '0_2')
-  const cell1_0 = createDiv('cell', '1_0')
-  const cell1_1 = createDiv('cell', '1_1')
-  const cell1_2 = createDiv('cell', '1_2')
-  const cell2_0 = createDiv('cell', '2_0')
-  const cell2_1 = createDiv('cell', '2_1')
-  const cell2_2 = createDiv('cell', '2_2')
 
-  board.append(cell0_0)
-  board.append(cell0_1)
-  board.append(cell0_2)
-  board.append(cell1_0)
-  board.append(cell1_1)
-  board.append(cell1_2)
-  board.append(cell2_0)
-  board.append(cell2_1)
-  board.append(cell2_2)
-  return board
-}
-/* crear la parte del los resultados */
-function createResultsDiv() {
-  /* Div general */
-  const GeneralDiv = createDiv('general-vid')
-  /* crear div para contadores de partidas */
-  const resultsDiv = createDiv('results-div')
-
-  /* crear div para ganados por X */
-  const resultsDivX = createDiv('results-div-x')
-  const resultCountXTitle = document.createElement('p')
-  resultCountXTitle.textContent = 'X - won: '
-  resultCountXTitle.className = 'Xtext'
-  const resultCountXvalue = document.createElement('p')
-  resultCountXvalue.className = 'result-count-x-value'
-  resultCountXvalue.textContent = ScoreX
-  resultsDivX.append(resultCountXTitle)
-  resultsDivX.append(resultCountXvalue)
-
-  /* crear div paraganados por Y */
-  const resultsDivO = createDiv('results-div-y')
-  const resultCountOTitle = document.createElement('p')
-  resultCountOTitle.textContent = 'O - won: '
-  resultCountOTitle.className = 'Otext'
-  const resultCountOValue = document.createElement('p')
-  resultCountOValue.className = 'result-count-o-value'
-  resultCountOValue.textContent = ScoreO
-  resultsDivO.append(resultCountOTitle)
-  resultsDivO.append(resultCountOValue)
-  /* empates */
-  const resultsDivdrawns = createDiv('result-drawns')
-  const resultCountDrownTitle = document.createElement('p')
-  resultCountDrownTitle.textContent = 'Drawns: '
-  resultCountDrownTitle.className = 'Drawntext'
-  const resultCountDrawnValue = document.createElement('p')
-  resultCountDrawnValue.className = 'result-count-drawn-value'
-  resultCountDrawnValue.textContent = Drawns
-
-  resultsDivdrawns.append(resultCountDrownTitle)
-  resultsDivdrawns.append(resultCountDrawnValue)
-  /* recuento total Partidas */
-
-  const resultsDivTotals = createDiv('result-totals')
-  const resultDivTotalText = document.createElement('p')
-  resultDivTotalText.textContent = 'Games: '
-  resultDivTotalText.className = 'total-games'
-  const resultDivTotalValue = document.createElement('p')
-  resultDivTotalValue.className = 'result-count-total-value'
-  resultDivTotalValue.textContent = Totals
-
-  resultsDivTotals.append(resultDivTotalText)
-  resultsDivTotals.append(resultDivTotalValue)
-  /* añadir los div de reslt-x e Y ald div results */
-  resultsDiv.append(resultsDivX)
-  resultsDiv.append(resultsDivO)
-  resultsDiv.append(resultsDivdrawns)
-  GeneralDiv.append(resultsDiv)
-  GeneralDiv.append(resultsDivTotals)
-  return GeneralDiv
-}
 /* inicializar juego */
 function startGame() {
   circleTurn = false
