@@ -6,3 +6,10 @@ header {
   justify-content: space-around;
   align-items: center;
 }
+.header-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 3vw;
+}

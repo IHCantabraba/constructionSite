@@ -10,6 +10,8 @@ export const createHeaderBtn = (textContent) => {
   /* iniciar página Tres en raya */
   buttonTicTac.addEventListener('click', () => {
     if (!document.querySelector('.board')) {
+      const content = document.querySelector('.content')
+      content.innerHTML = ''
       initBoard()
     }
     if (document.querySelector('.board')) {

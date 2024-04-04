@@ -1,0 +1,23 @@
+.boardBrain {
+  position: fixed;
+  display: grid;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: repeat(4, auto);
+  filter: drop-shadow(5px 6px 10px #000000);
+}
+.cellGame {
+  width: var(--ihc-cell-size);
+  height: var(--ihc-cell-size);
+  border: 1px solid black;
+  justify-items: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
