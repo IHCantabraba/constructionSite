@@ -2,6 +2,7 @@ import { ShowWinner } from '../../components/TicTacModal/TicTacTowModal'
 import { createResultsDiv } from '../../components/utils/TicTacToe/ResultsContainer/createResultsDiv'
 import { createBoard } from '../../components/utils/TicTacToe/Board/CreateBoard,js'
 import './TicTacToe.css'
+import { DisablingTurnSelectio } from '../../components/utils/TicTacToe/disablingTurnSelectiion'
 /* determinar el turno */
 let circleTurn
 let cellElements
@@ -50,13 +51,19 @@ export const initBoard = () => {
   const modalMsg = document.querySelector('.winning-msg')
   modalMsg.classList.toggle('hide')
   restartBtn.addEventListener('click', () => {
+    DisablingTurnSelectio(document.getElementById('selectorX'), false)
+    DisablingTurnSelectio(document.getElementById('selectorO'), false)
+    const turno = document.querySelector('.turnValue')
+    turno.innerHTML = '-'
     startGame()
   })
 }
-
+export const setInitialTurn = (turn) => {
+  circleTurn = turn
+}
 /* inicializar juego */
 function startGame() {
-  circleTurn = false
+  // circleTurn = false
   cellElements = document.querySelectorAll('.cell')
   cellElements.forEach((cell) => {
     cell.classList.remove(X_CLASS)
@@ -70,6 +77,10 @@ function startGame() {
 }
 /* en cada click asignar clase a la casilla (x, o) */
 function handleClick(e) {
+  /* deshabilitar botones */
+  DisablingTurnSelectio(document.getElementById('selectorX'), true)
+  DisablingTurnSelectio(document.getElementById('selectorO'), true)
+
   const cell = e.target
   const currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS
 
@@ -142,6 +153,13 @@ function placeMarker(cell, currentClass) {
 /* cambiar los turnos */
 function swapTurns() {
   circleTurn = !circleTurn
+  const turno = document.querySelector('.turnValue')
+  turno.innerHTML = ''
+  if (circleTurn) {
+    turno.textContent = 'O'
+  } else {
+    turno.textContent = 'X'
+  }
 }
 /* mostrar en la casilla seleccionada el objeto que se va a pintar si se hace click */
 function setBoardHoverClasss() {
