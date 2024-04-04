@@ -1,5 +1,5 @@
 import './header_style.css'
-import { createHeaderBtn } from '../utils/Headerbtn/headerBtn'
+import { createHeaderBtn } from '../utils/TicTacToe/Headerbtn/headerBtn'
 
 export const Header = (divApp) => {
   /* create app buttons */

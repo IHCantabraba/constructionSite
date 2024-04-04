@@ -1,4 +1,4 @@
-import { initBoard } from '../../../pages/TicTacToe/TicTacToe'
+import { initBoard } from '../../../../pages/TicTacToe/TicTacToe'
 import './headerBtn.css'
 
 export const createHeaderBtn = (textContent) => {

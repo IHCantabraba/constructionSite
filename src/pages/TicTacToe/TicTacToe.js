@@ -1,7 +1,6 @@
 import { ShowWinner } from '../../components/TicTacModal/TicTacTowModal'
-import { createBoard } from '../../components/utils/Board/CreateBoard,js'
-import { createResultsDiv } from '../../components/utils/ResultsContainer/createResultsDiv'
-
+import { createResultsDiv } from '../../components/utils/TicTacToe/ResultsContainer/createResultsDiv'
+import { createBoard } from '../../components/utils/TicTacToe/Board/CreateBoard,js'
 import './TicTacToe.css'
 /* determinar el turno */
 let circleTurn

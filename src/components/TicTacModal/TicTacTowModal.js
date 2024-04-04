@@ -1,5 +1,5 @@
 import './TicTacToeModal.css'
-import { createDiv } from '../utils/CreateDiv'
+import { createDiv } from '../utils/TicTacToe/CreateDiv'
 
 export const ShowWinner = () => {
   const appDiv = document.querySelector('#app')
