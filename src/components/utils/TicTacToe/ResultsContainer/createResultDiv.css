@@ -30,3 +30,48 @@
 .turnValue {
   font-weight: bold;
 }
+.general-vid {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.results-div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--ihc-gap-default);
+
+  border-radius: 5%;
+  /* background-color: rgb(180, 179, 179); */
+  filter: drop-shadow(5px 6px 10px #000000);
+}
+.results-div-x,
+.results-div-y,
+.result-drawns,
+.result-totals {
+  display: flex;
+  flex-direction: row;
+  margin: 3px 8px;
+}
+.result-totals {
+  filter: drop-shadow(5px 6px 10px #000000);
+}
+.Xtext,
+.Otext,
+.Drawntext,
+.total-games {
+  font-size: 25px;
+  font-weight: bold;
+}
+.result-count-x-value,
+.result-count-o-value,
+.result-count-drawn-value,
+.result-count-total-value {
+  color: orangered;
+  min-width: 30px;
+  margin-left: 5px;
+  font-weight: bold;
+  font-size: 25px;
+}

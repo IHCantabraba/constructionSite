@@ -1,4 +1,4 @@
-import { ShowWinner } from '../../components/TicTacModal/TicTacTowModal'
+import { ShowWinner } from '../../components/utils/TicTacToe/TicTacModal/TicTacTowModal'
 import { createResultsDiv } from '../../components/utils/TicTacToe/ResultsContainer/createResultsDiv'
 import { createBoard } from '../../components/utils/TicTacToe/Board/CreateBoard,js'
 import './TicTacToe.css'

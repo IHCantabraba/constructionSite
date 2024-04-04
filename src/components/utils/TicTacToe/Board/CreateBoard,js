@@ -1,4 +1,5 @@
 import { createDiv } from '../CreateDiv'
+import './CreateBoard.css'
 export function createBoard() {
   /* create board */
   const board = createDiv('board')
