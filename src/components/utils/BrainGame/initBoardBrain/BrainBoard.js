@@ -32,8 +32,8 @@ export const initBrainBoard = () => {
         exist = !exist
       }
     }
-    console.log(imgBunch)
-    let imgSelected = imgBunch.slice(Number(position), 1)
+
+    let imgSelected = imgBunch.slice(position, position + 1)
     console.log(imgSelected)
 
     const imgDiv = document.createElement('img')
