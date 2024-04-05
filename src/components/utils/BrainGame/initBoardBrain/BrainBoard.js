@@ -22,16 +22,16 @@ export const initBrainBoard = () => {
       UsedRandoms.push(position)
     } else {
       exist = !exist
-    }
-    /* si el numero ya s eha usado, volver  agenerar otro */
-    while (exist) {
-      console.log('repeated')
-      position = getRandomInt(0, 15)
-      if (!UsedRandoms.includes(position)) {
-        UsedRandoms.push(position)
-        exist = !exist
+      while (exist) {
+        console.log('repeated')
+        position = getRandomInt(0, 15)
+        if (!UsedRandoms.includes(position)) {
+          UsedRandoms.push(position)
+          exist = !exist
+        }
       }
     }
+    /* si el numero ya s eha usado, volver  agenerar otro */
 
     let imgSelected = imgBunch.slice(position, position + 1)
     console.log(imgSelected)
