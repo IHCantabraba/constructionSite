@@ -10,7 +10,6 @@ export function checkRandomExistance(UsedRandoms, randomNumber, exist) {
   } else {
     exist = !exist
     while (exist) {
-      console.log('repeated')
       randomNumber = getRandomInt(0, 15)
       if (!UsedRandoms.includes(randomNumber)) {
         UsedRandoms.push(randomNumber)

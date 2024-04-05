@@ -15,7 +15,6 @@
 .cellGame {
   width: var(--ihc-cell-size);
   height: var(--ihc-cell-size);
-  border: 1px solid black;
   justify-items: center;
   align-items: center;
   display: flex;
@@ -23,10 +22,21 @@
   align-items: center;
   position: relative;
   cursor: pointer;
+  margin: 6px;
+  border: 5px solid rgb(78, 57, 102);
+  box-shadow: 0 0 0 4px rgb(208, 176, 107);
 }
 
 .cellGame > img {
   object-fit: cover;
   width: 100%;
   height: 100%;
+}
+
+.hideImg {
+  visibility: hidden;
+}
+.hide {
+  background-color: rgb(78, 57, 102);
+  transition: all 1s ease-in;
 }

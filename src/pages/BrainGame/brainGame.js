@@ -5,7 +5,6 @@ import './brainGame.css'
 export const initBrainGame = (textContent) => {
   const buttonBrainGame = document.createElement('button')
   buttonBrainGame.textContent = textContent
-  console.log('Brain ')
   /* listener del botón del header */
   buttonBrainGame.addEventListener('click', () => {
     /* limpiar en contenido del div content cuando se hace click en un header menu */
