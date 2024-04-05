@@ -1,6 +1,7 @@
 import './BrainBoard.css'
 import { createDiv } from '../../TicTacToe/CreateDiv'
 import { imgBunch } from '../../GameImage/gameImgArr'
+import { checkRandomExistance, getRandomInt } from '../functions/funtions'
 export const initBrainBoard = () => {
   /* crear div para el board */
   const board = createDiv('boardBrain')
@@ -14,10 +15,9 @@ export const initBrainBoard = () => {
     console.log(`forLoop lop: ${i}`)
     /* crear contenedor de la imagen */
     const cell = createDiv('cellGame show', i)
-    /* random position */
-    let exist = false
+
     // let position = getRandomInt(0, 15)
-    let position = checkRandomExistance(UsedRandoms, getRandomInt(0, 15), exist)
+    let position = checkRandomExistance(UsedRandoms, getRandomInt(0, 15), false)
     /* si el numero ya s eha usado, volver  agenerar otro */
 
     let imgSelected = imgBunch.slice(position, position + 1)
@@ -37,27 +37,4 @@ export const initBrainBoard = () => {
   UsedRandoms = []
 
   return board
-}
-
-function getRandomInt(min, max) {
-  min = Math.ceil(min)
-  max = Math.floor(max)
-  return Math.floor(Math.random() * (max - min + 1)) + min
-}
-
-function checkRandomExistance(UsedRandoms, randomNumber, exist) {
-  if (!UsedRandoms.includes(randomNumber)) {
-    UsedRandoms.push(randomNumber)
-  } else {
-    exist = !exist
-    while (exist) {
-      console.log('repeated')
-      randomNumber = getRandomInt(0, 15)
-      if (!UsedRandoms.includes(randomNumber)) {
-        UsedRandoms.push(randomNumber)
-        exist = !exist
-      }
-    }
-  }
-  return randomNumber
 }
