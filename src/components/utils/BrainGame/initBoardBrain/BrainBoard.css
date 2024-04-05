@@ -1,3 +1,6 @@
+:root {
+  --ihc-cell-size: 100px;
+}
 .boardBrain {
   position: fixed;
   display: grid;
@@ -20,4 +23,10 @@
   align-items: center;
   position: relative;
   cursor: pointer;
+}
+
+.cellGame > img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }

@@ -1,40 +1,59 @@
 import './BrainBoard.css'
 import { createDiv } from '../../TicTacToe/CreateDiv'
+import { imgBunch } from '../../GameImage/gameImgArr'
 export const initBrainBoard = () => {
+  /* crear div para el board */
   const board = createDiv('boardBrain')
   board.classList.add('hide')
+  /* Ready Used  */
+  let UsedRandoms = []
+  console.log(`used randoms numebrs are: ${UsedRandoms}`)
+
   /* create 4x4 grid */
-  const cell0_0 = createDiv('cellGame', '0_0')
-  const cell0_1 = createDiv('cellGame', '0_1')
-  const cell0_2 = createDiv('cellGame', '0_2')
-  const cell0_3 = createDiv('cellGame', '0_3')
-  const cell1_0 = createDiv('cellGame', '1_0')
-  const cell1_1 = createDiv('cellGame', '1_1')
-  const cell1_2 = createDiv('cellGame', '1_2')
-  const cell1_3 = createDiv('cellGame', '1_3')
-  const cell2_0 = createDiv('cellGame', '2_0')
-  const cell2_1 = createDiv('cellGame', '2_1')
-  const cell2_2 = createDiv('cellGame', '2_2')
-  const cell2_3 = createDiv('cellGame', '2_3')
-  const cell3_0 = createDiv('cellGame', '3_0')
-  const cell3_1 = createDiv('cellGame', '3_1')
-  const cell3_2 = createDiv('cellGame', '3_2')
-  const cell3_3 = createDiv('cellGame', '3_3')
-  board.append(cell0_0)
-  board.append(cell0_1)
-  board.append(cell0_2)
-  board.append(cell0_3)
-  board.append(cell1_0)
-  board.append(cell1_1)
-  board.append(cell1_2)
-  board.append(cell1_3)
-  board.append(cell2_0)
-  board.append(cell2_1)
-  board.append(cell2_2)
-  board.append(cell2_3)
-  board.append(cell3_0)
-  board.append(cell3_1)
-  board.append(cell3_2)
-  board.append(cell3_3)
+  for (let i = 0; i <= 15; i++) {
+    console.log(`forLoop lop: ${i}`)
+    /* crear contenedor de la imagen */
+    const cell = createDiv('cellGame show', i)
+    /* random position */
+    let exist = false
+    let position = getRandomInt(0, 15)
+
+    if (!UsedRandoms.includes(position)) {
+      UsedRandoms.push(position)
+    } else {
+      exist = !exist
+    }
+    /* si el numero ya s eha usado, volver  agenerar otro */
+    while (exist) {
+      console.log('repeated')
+      position = getRandomInt(0, 15)
+      if (!UsedRandoms.includes(position)) {
+        UsedRandoms.push(position)
+        exist = !exist
+      }
+    }
+    console.log(imgBunch)
+    let imgSelected = imgBunch.slice(Number(position), 1)
+    console.log(imgSelected)
+
+    const imgDiv = document.createElement('img')
+    for (let img of imgSelected) {
+      imgDiv.src = img.url
+      imgDiv.id = img.name
+      imgDiv.className = 'img hide'
+    }
+    cell.append(imgDiv)
+    /* crear la celda  */
+    board.append(cell)
+  }
+  console.log(UsedRandoms)
+  UsedRandoms = []
+
   return board
+}
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min)
+  max = Math.floor(max)
+  return Math.floor(Math.random() * (max - min + 1)) + min
 }
