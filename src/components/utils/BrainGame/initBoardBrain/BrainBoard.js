@@ -18,12 +18,13 @@ export const initBrainBoard = () => {
     /* si el numero ya s eha usado, volver  agenerar otro */
     let imgSelected = imgBunch.slice(position, position + 1)
     /* crewar etiqueta img y asignar los valores de la imagen seleccionada */
+
     const imgDiv = document.createElement('img')
     imgDiv.src = imgSelected[0].url
     imgDiv.id = imgSelected[0].name
     imgDiv.className = 'img show'
     cell.addEventListener('click', (e) => {
-      let clase = e.target.classList[1]
+      let clase = cell.classList[1]
       console.log(`se va a cambiar la clase ${clase}`)
       swapVisibility(cell, clase, e.target)
     })
@@ -37,21 +38,19 @@ export const initBrainBoard = () => {
 
 export function swapVisibility(contenedor, clase, img) {
   if (clase === 'show') {
+    console.log(`image clases: ${img.classList}`)
+    console.log(`image contenedor: ${contenedor.classList}`)
     contenedor.classList.remove('show')
     contenedor.classList.add('hide')
     img.classList.remove('show')
     img.classList.add('hideImg')
-  } else {
+  }
+  if (clase === 'hide' || clase === 'hideImg') {
+    console.log(`image clases: ${img.classList}`)
+    console.log(`image contenedor: ${contenedor.classList}`)
     contenedor.classList.remove('hide')
     contenedor.classList.add('show')
     img.classList.remove('hideImg')
     img.classList.add('show')
   }
-  // contenedor.classList.add(clase)
-
-  // if (clase === 'hide') {
-  //   img.classList.add('hideImg')
-  // } else {
-  //   img.classList.add('show')
-  // }
 }
