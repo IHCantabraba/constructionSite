@@ -1,56 +1,75 @@
 import './BrainBoard.css'
 import { createDiv } from '../../TicTacToe/CreateDiv'
 import { imgBunch } from '../../GameImage/gameImgArr'
-import { checkRandomExistance, getRandomInt } from '../functions/funtions'
 export const initBrainBoard = () => {
   /* crear div para el board */
-  const board = createDiv('boardBrain')
-  board.classList.add('hide')
-  /* Ready Used  */
-  let UsedRandoms = []
+  let clickCount = 0
+  let firstCard = ''
+  let secondCard = ''
 
-  /* create 4x4 grid */
-  for (let i = 0; i <= 15; i++) {
-    /* crear contenedor de la imagen */
-    const cell = createDiv('cellGame show', i)
-    // let position = getRandomInt(0, 15)
-    let position = checkRandomExistance(UsedRandoms, getRandomInt(0, 15), false)
-    /* si el numero ya s eha usado, volver  agenerar otro */
-    let imgSelected = imgBunch.slice(position, position + 1)
-    /* crewar etiqueta img y asignar los valores de la imagen seleccionada */
-
-    const imgDiv = document.createElement('img')
-    imgDiv.src = imgSelected[0].url
-    imgDiv.id = imgSelected[0].name
-    imgDiv.className = 'img show'
-    cell.addEventListener('click', (e) => {
-      let clase = cell.classList[1]
-      console.log(`se va a cambiar la clase ${clase}`)
-      swapVisibility(cell, clase, e.target)
+  const cardMatch = () => {
+    let cardSelected = document.querySelectorAll('.card-selected')
+    cardSelected.forEach((element) => {
+      element.classList.add('card-match')
     })
+  }
+  const resetGame = () => {
+    clickCount = 0
+    firstCard = ''
+    secondCard = ''
+    let cardSelected = document.querySelectorAll('.card-selected')
+    cardSelected.forEach((element) => {
+      element.classList.remove('card-selected')
+    })
+  }
 
-    cell.append(imgDiv)
+  const board = createDiv('boardBrain')
+  /*  board listener to get card clicked */
+  board.addEventListener('click', (e) => {
+    /* get selectid card */
+    let currentCard = e.target
+
+    /* avoid  boardbrain styleing on click */
+    if (currentCard.classList.contains('boardBrain')) {
+      return false
+    }
+    clickCount++
+
+    if (clickCount < 3) {
+      if (clickCount === 1) {
+        firstCard = currentCard.dataset.name
+        currentCard.classList.add('card-selected')
+      } else {
+        secondCard = currentCard.dataset.name
+        currentCard.classList.add('card-selected')
+      }
+      if (firstCard !== '' && secondCard !== '') {
+        if (firstCard === secondCard) {
+          // currentCard.classList.add('card-match')
+          cardMatch()
+          resetGame()
+        } else {
+          resetGame()
+        }
+      }
+    }
+  })
+
+  /* duplicar el array de cartas */
+  const cards = imgBunch.concat(imgBunch)
+  /* random position */
+
+  let RandomPositions = Array.from(cards).sort(() => 0.5 - Math.random())
+  /* create 4x4 grid */
+  for (let i = 0; i < RandomPositions.length; i++) {
+    /* crear contenedor de la imagen */
+    const cell = createDiv('card', i)
+
+    cell.style.backgroundImage = `url(${RandomPositions[i].url})`
+    cell.dataset.name = RandomPositions[i].name
+    cell.id = i
     /* crear la celda  */
     board.append(cell)
   }
   return board
-}
-
-export function swapVisibility(contenedor, clase, img) {
-  if (clase === 'show') {
-    console.log(`image clases: ${img.classList}`)
-    console.log(`image contenedor: ${contenedor.classList}`)
-    contenedor.classList.remove('show')
-    contenedor.classList.add('hide')
-    img.classList.remove('show')
-    img.classList.add('hideImg')
-  }
-  if (clase === 'hide' || clase === 'hideImg') {
-    console.log(`image clases: ${img.classList}`)
-    console.log(`image contenedor: ${contenedor.classList}`)
-    contenedor.classList.remove('hide')
-    contenedor.classList.add('show')
-    img.classList.remove('hideImg')
-    img.classList.add('show')
-  }
 }
