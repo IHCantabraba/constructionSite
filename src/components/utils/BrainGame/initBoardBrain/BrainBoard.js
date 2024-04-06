@@ -37,19 +37,22 @@ export const initBrainBoard = () => {
 
     if (clickCount < 3) {
       if (clickCount === 1) {
-        firstCard = currentCard.dataset.name
-        currentCard.classList.add('card-selected')
+        firstCard = currentCard.parentNode.dataset.name
+        currentCard.parentNode.classList.add('card-selected')
       } else {
-        secondCard = currentCard.dataset.name
-        currentCard.classList.add('card-selected')
+        secondCard = currentCard.parentNode.dataset.name
+        currentCard.parentNode.classList.add('card-selected')
       }
       if (firstCard !== '' && secondCard !== '') {
         if (firstCard === secondCard) {
-          // currentCard.classList.add('card-match')
-          cardMatch()
-          resetGame()
+          setTimeout(() => {
+            cardMatch()
+            resetGame()
+          }, 1000)
         } else {
-          resetGame()
+          setTimeout(() => {
+            resetGame()
+          }, 1000)
         }
       }
     }
@@ -64,12 +67,20 @@ export const initBrainBoard = () => {
   for (let i = 0; i < RandomPositions.length; i++) {
     /* crear contenedor de la imagen */
     const cell = createDiv('card', i)
-
-    cell.style.backgroundImage = `url(${RandomPositions[i].url})`
     cell.dataset.name = RandomPositions[i].name
     cell.id = i
+    // cell.style.backgroundImage = `url(${RandomPositions[i].url})`
+    const frontDiv = document.createElement('div')
+    frontDiv.classList.add('frontCard')
+    const backDiv = document.createElement('div')
+    backDiv.classList.add('backCard')
+
+    backDiv.style.backgroundImage = `url(${RandomPositions[i].url})`
+
     /* crear la celda  */
     board.append(cell)
+    cell.append(frontDiv)
+    cell.append(backDiv)
   }
   return board
 }
