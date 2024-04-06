@@ -13,6 +13,7 @@ export const initBrainBoard = () => {
       element.classList.add('card-match')
     })
   }
+  /* resetear los contadores una vez que se hayan seleccionado dos cartas */
   const resetGame = () => {
     clickCount = 0
     firstCard = ''
@@ -43,6 +44,7 @@ export const initBrainBoard = () => {
         secondCard = currentCard.parentNode.dataset.name
         currentCard.parentNode.classList.add('card-selected')
       }
+
       if (firstCard !== '' && secondCard !== '') {
         if (firstCard === secondCard) {
           setTimeout(() => {
@@ -55,6 +57,9 @@ export const initBrainBoard = () => {
           }, 1000)
         }
       }
+      const MachedCars = document.querySelectorAll('.card-match')
+      console.log(MachedCars.length)
+      if (MachedCars.length === 14) console.log('todas emparejadas')
     }
   })
 
