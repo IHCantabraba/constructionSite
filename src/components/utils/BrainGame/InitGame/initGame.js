@@ -1,5 +1,5 @@
 import { initBrainBoard } from '../initBoardBrain/BrainBoard'
-import './initGame.css'
+// import './initGame.css'
 
 export const initGame = () => {
   /* crear elementos */

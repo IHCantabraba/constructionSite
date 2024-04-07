@@ -1,18 +1,21 @@
 import './BrainBoard.css'
 import { createDiv } from '../../TicTacToe/CreateDiv'
-import { imgBunch } from '../../GameImage/gameImgArr'
+import { imgBunch } from '../GameImage/gameImgArr'
 import { GameSolved, cardMatch } from '../functions/funtions'
+import { getReady } from '../GetReady/getReadyModal'
 export const initBrainBoard = () => {
   /* crear div para el board */
   let clickCount = 0
   let firstCard = ''
   let secondCard = ''
+  let cardId
 
   /* resetear los contadores una vez que se hayan seleccionado dos cartas */
   const resetGame = () => {
     clickCount = 0
     firstCard = ''
     secondCard = ''
+    cardId = ''
     let cardSelected = document.querySelectorAll('.card-selected')
     cardSelected.forEach((element) => {
       element.classList.remove('card-selected')
@@ -32,15 +35,30 @@ export const initBrainBoard = () => {
     clickCount++
     /* asignación de clases a las cartas clicadas */
     if (clickCount < 3) {
+      /* si es el primer click que se hace */
       if (clickCount === 1) {
+        cardId = currentCard.parentNode.id
+        console.log(`card Id is: ${cardId}`)
         firstCard = currentCard.parentNode.dataset.name
         currentCard.parentNode.classList.add('card-selected')
       } else {
-        secondCard = currentCard.parentNode.dataset.name
-        currentCard.parentNode.classList.add('card-selected')
+        /* si no es el primer click (tienen que ser el segundo a la fuerza) */
+        /* si no se ha clicado sobre la misma carta que en el primer click */
+        if (cardId !== currentCard.parentNode.id) {
+          console.log(
+            `cardId es: ${cardId} & currentcardId es: ${currentCard.id}`
+          )
+          secondCard = currentCard.parentNode.dataset.name
+          currentCard.parentNode.classList.add('card-selected')
+        } else {
+          /* si se ha clicado sobre la misma carta que en el primer click */
+          secondCard = currentCard.parentNode.dataset.name
+          currentCard.parentNode.classList.remove('card-selected')
+        }
       }
+
       /* asignar el match o el reset */
-      /* TODO--> Evitar que dos clicks sobre la misma imágen provoquen un match erroneo */
+      console.log(`firstCard is:${firstCard} & second card is: ${secondCard}`)
       if (firstCard !== '' && secondCard !== '') {
         if (firstCard === secondCard) {
           setTimeout(() => {
@@ -81,5 +99,8 @@ export const initBrainBoard = () => {
     cell.append(frontDiv)
     cell.append(backDiv)
   }
+  /* inicializar la ventana modal de start */
+  getReady()
+
   return board
 }

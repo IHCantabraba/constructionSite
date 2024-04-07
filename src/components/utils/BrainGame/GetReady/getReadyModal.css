@@ -1,0 +1,32 @@
+.get-ready-msg {
+  position: fixed;
+  opacity: 10;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 5rem;
+  z-index: 1000001;
+}
+.get-ready-msg.hide {
+  display: none;
+}
+#PlayBtn {
+  font-size: 3rem;
+  background-color: white;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+#PlayBtn:hover {
+  background-color: black;
+  border-color: white;
+  color: white;
+}
