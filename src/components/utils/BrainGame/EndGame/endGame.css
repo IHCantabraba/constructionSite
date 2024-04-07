@@ -1,8 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@400..700&display=swap');
-* {
-  font-family: 'EDU+NSW+ACT+Foundation', sans-serif;
-}
-.winning-msg-brain {
+.winning-msg {
   position: fixed;
   opacity: 10;
   top: 0;
@@ -18,7 +14,7 @@
   font-size: 5rem;
   z-index: 1000001;
 }
-.winning-msg-brain.hide {
+.winning-msg.hide {
   display: none;
 }
 #restartBtn {
@@ -27,6 +23,7 @@
   cursor: pointer;
   padding: 0.25rem 0.5rem;
   border: 1px solid black;
+  border-radius: 5px;
 }
 #restartBtn:hover {
   background-color: black;

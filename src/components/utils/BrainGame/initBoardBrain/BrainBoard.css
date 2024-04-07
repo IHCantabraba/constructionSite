@@ -21,13 +21,14 @@
   position: relative;
   transition: all 0.4s linear;
   transform-style: preserve-3d;
-  margin: 1rem;
+  margin: 0.4rem;
 }
 .card,
 .backCard,
 .frontCard {
-  height: 10rem;
-  width: 10rem;
+  height: 5rem;
+  width: 5rem;
+  border-radius: 5px;
 }
 .backCard,
 .frontCard {
@@ -39,7 +40,7 @@
   background-size: contain;
   border-radius: 0.6rem;
   box-shadow: rgb(149, 157, 165, 0.2);
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .backCard {
@@ -48,11 +49,12 @@
   background-repeat: no-repeat;
   background-position: center center;
   box-shadow: rgba(149, 157, 165, 0.2);
-  padding: 2rem;
+  padding: 1rem;
   background-color: var(rgb(236, 199, 12));
 }
 .card-selected {
   transform: rotateY(180deg);
+  border-radius: 5px;
 }
 .card-match .frontCard {
   background-color: var(--ihc-matched-card);

@@ -1,9 +1,12 @@
+import { endGame } from '../EndGame/endGame'
+
+/* generar random */
 export function getRandomInt(min, max) {
   min = Math.ceil(min)
   max = Math.floor(max)
   return Math.floor(Math.random() * (max - min + 1)) + min
 }
-
+/* comprobar existencia del valor random */
 export function checkRandomExistance(UsedRandoms, randomNumber, exist) {
   if (!UsedRandoms.includes(randomNumber)) {
     UsedRandoms.push(randomNumber)
@@ -18,4 +21,24 @@ export function checkRandomExistance(UsedRandoms, randomNumber, exist) {
     }
   }
   return randomNumber
+}
+
+/* asignar clase match a las cartas que coincidan */
+export const cardMatch = () => {
+  let cardSelected = document.querySelectorAll('.card-selected')
+  cardSelected.forEach((element) => {
+    element.classList.add('card-match')
+  })
+}
+
+/* finalizar juego cuando todas la scartas tienen clase match */
+export const GameSolved = (clickCount) => {
+  if (clickCount === 0) {
+    const MachedCars = document.querySelectorAll('.card-match')
+    console.log(MachedCars.length)
+    if (MachedCars.length === 16) {
+      console.log('todas emparejadas')
+      endGame()
+    }
+  }
 }
