@@ -1,9 +1,11 @@
 import { initBrainGame } from '../../../../pages/BrainGame/brainGame'
 import { createDiv } from '../../TicTacToe/CreateDiv'
+import { getReady } from '../GetReady/getReadyModal'
+import { ExpiredTime } from '../functions/funtions'
 
 import './endGame.css'
-
-export const endGame = () => {
+export let TIMEOUT
+export const endGame = (msg) => {
   console.log('game completed!')
 
   const appDiv = document.querySelector('#app')
@@ -13,7 +15,7 @@ export const endGame = () => {
   }
 
   const divMsgTxt = createDiv('data-winning-msg-text')
-  divMsgTxt.textContent = '¡Game Completed!'
+  divMsgTxt.textContent = `¡${msg}!`
   const divBtn = document.createElement('button')
   divBtn.id = 'restartBtn'
   divBtn.textContent = 'Play Again'
@@ -23,8 +25,12 @@ export const endGame = () => {
     cards.forEach((e) => {
       e.classList.remove('card-match')
     })
-    /* inicializar el juego d enuevo */
+    /* inicializar el juego de nuevo */
+    getReady()
     initBrainGame()
+    /* revisar */
+    TIMEOUT = ExpiredTime()
+
     /* esconder la ventana modal */
     divMsg.classList.add('hide')
   })

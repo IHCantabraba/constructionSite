@@ -30,3 +30,7 @@
   border-color: white;
   color: white;
 }
+
+.hide {
+  display: none;
+}

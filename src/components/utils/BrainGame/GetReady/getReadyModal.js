@@ -11,25 +11,22 @@ export const getReady = () => {
     divMsg.classList.remove('hide')
   }
 
-  // const divMsgTxt = createDiv('data-winning-msg-text')
-  // divMsgTxt.textContent = '¡Game Completed!'
   const divBtn = document.createElement('button')
   divBtn.id = 'PlayBtn'
   divBtn.textContent = 'Start'
   /* resetar las classes de cada carta */
   divBtn.addEventListener('click', () => {
-    divMsg.classList.add('hide')
+    divBtn.classList.add('hide')
     /* mostrar las cartas y esconderlas */
     setTimeout(() => {
       showBoard()
       setTimeout(() => {
+        /* esconder las cartas */
         hideBoard()
+        divBtn.classList.remove('hide')
+        divMsg.classList.add('hide')
       }, 1000)
     }, 250)
-
-    /* esconder las cartas */
-
-    /* esconder la ventana modal */
   })
   // divMsg.append(divMsgTxt)
   divMsg.append(divBtn)

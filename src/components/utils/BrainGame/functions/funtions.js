@@ -38,7 +38,25 @@ export const GameSolved = (clickCount) => {
     console.log(MachedCars.length)
     if (MachedCars.length === 16) {
       console.log('todas emparejadas')
-      endGame()
+      const msg = 'Game Completed'
+      endGame(msg)
     }
   }
+}
+
+export const ExpiredTime = () => {
+  const gameTime = setTimeout(() => {
+    endGame('Time Out')
+  }, 50000)
+  return gameTime
+}
+
+export const GameTime = (div) => {
+  currentContent = div.textContent
+  setTimeout(() => {
+    setInterval(() => {
+      currentContent--
+    }, 1000)
+  }, 50000)
+  return currentContent
 }

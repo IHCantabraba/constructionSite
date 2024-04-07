@@ -1,4 +1,5 @@
 import { initGame } from '../../components/utils/BrainGame/InitGame/initGame'
+import { ExpiredTime } from '../../components/utils/BrainGame/functions/funtions'
 import './brainGame.css'
 
 /* función para el botón del juego en el header */
@@ -14,6 +15,7 @@ export const initBrainGame = (textContent) => {
       initGame()
       const BoardBrain = document.querySelector('.boardBrain')
       BoardBrain.classList.remove('hide')
+      const timeOut = ExpiredTime()
     }
   })
   return buttonBrainGame

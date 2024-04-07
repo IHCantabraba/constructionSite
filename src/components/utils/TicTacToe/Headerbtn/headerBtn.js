@@ -1,6 +1,6 @@
 import { initBoard } from '../../../../pages/TicTacToe/TicTacToe'
 import './headerBtn.css'
-
+import { TIMEOUT } from '../../BrainGame/EndGame/endGame'
 export const createHeaderBtn = (textContent) => {
   const buttonTicTac = document.createElement('button')
 
@@ -9,6 +9,7 @@ export const createHeaderBtn = (textContent) => {
 
   /* iniciar página Tres en raya */
   buttonTicTac.addEventListener('click', () => {
+    clearTimeout(TIMEOUT)
     if (!document.querySelector('.board')) {
       const content = document.querySelector('.content')
       content.innerHTML = ''

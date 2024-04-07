@@ -3,7 +3,9 @@ import { createDiv } from '../../TicTacToe/CreateDiv'
 import { imgBunch } from '../GameImage/gameImgArr'
 import { GameSolved, cardMatch } from '../functions/funtions'
 import { getReady } from '../GetReady/getReadyModal'
+import { timeCounter } from '../ResultContainer/resultContainer'
 export const initBrainBoard = () => {
+  timeCounter(`${50} sec`)
   /* crear div para el board */
   let clickCount = 0
   let firstCard = ''

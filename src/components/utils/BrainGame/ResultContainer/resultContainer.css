@@ -1,0 +1,14 @@
+.brain-result-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.timer {
+  font-weight: bold;
+  color: rgb(241, 137, 27);
+}
+.timer-text {
+  color: var(--ihc-result-text-color-general);
+}

@@ -7,6 +7,7 @@
   --ihc-cell-size: 100px;
   --ihc-mark-size: calc(var(--ihc-cell-size) * 0.9);
   --ihc-gap-default: 5px;
+  --ihc-result-text-color-general: rgb(133, 133, 133);
 }
 * {
   margin: 0;
