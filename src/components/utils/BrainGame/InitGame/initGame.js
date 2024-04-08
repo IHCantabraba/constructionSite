@@ -1,3 +1,4 @@
+import { getReady } from '../GetReady/getReadyModal'
 import { initBrainBoard } from '../initBoardBrain/BrainBoard'
 // import './initGame.css'
 
@@ -11,4 +12,5 @@ export const initGame = () => {
     const content = document.querySelector('.content')
     content.append(boardBrain)
   }
+  getReady()
 }

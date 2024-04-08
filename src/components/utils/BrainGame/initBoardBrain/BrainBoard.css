@@ -59,3 +59,8 @@
 .card-match .frontCard {
   background-color: var(--ihc-matched-card);
 }
+
+.showCard {
+  transform: rotateY(180deg);
+  border-radius: 5px;
+}

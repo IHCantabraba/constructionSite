@@ -1,17 +1,29 @@
 import { hideBoard, showBoard } from '../showBoard/showBoard'
 import { createDiv } from '../../TicTacToe/CreateDiv'
 import './getReadyModal.css'
+import {
+  ExpiredTime,
+  resetTimeLeft,
+  startBackcount
+} from '../functions/funtions'
 
 export const getReady = () => {
-  console.log('game completed!')
-
   const appDiv = document.querySelector('#app')
-  const divMsg = createDiv('get-ready-msg', 'winninMsg-brain')
-  if (document.querySelector('.get-ready-msg')) {
+  let divMsg = document.querySelector('.get-ready-msg')
+  let divBtn = document.querySelector('.ReadyBtn')
+  if (divMsg !== null) {
     divMsg.classList.remove('hide')
+  } else {
+    divMsg = createDiv('get-ready-msg', 'winninMsg-brain')
+    divBtn = document.createElement('button')
+    divBtn.classList.add('ReadyBtn')
   }
+  // const divMsg = createDiv('get-ready-msg', 'winninMsg-brain')
+  // if (document.querySelector('.get-ready-msg')) {
+  //   divMsg.classList.remove('hide')
+  // }
 
-  const divBtn = document.createElement('button')
+  // const divBtn = document.createElement('button')
   divBtn.id = 'PlayBtn'
   divBtn.textContent = 'Start'
   /* resetar las classes de cada carta */
@@ -27,8 +39,12 @@ export const getReady = () => {
         divMsg.classList.add('hide')
       }, 1000)
     }, 250)
+    ExpiredTime()
+    // callTimeleft()
+    startBackcount()
+    resetTimeLeft()
   })
-  // divMsg.append(divMsgTxt)
+
   divMsg.append(divBtn)
   appDiv.append(divMsg)
 }

@@ -1,11 +1,12 @@
 import './BrainBoard.css'
 import { createDiv } from '../../TicTacToe/CreateDiv'
 import { imgBunch } from '../GameImage/gameImgArr'
-import { GameSolved, cardMatch } from '../functions/funtions'
+import { GameSolved, cardMatch, checkDone } from '../functions/funtions'
 import { getReady } from '../GetReady/getReadyModal'
 import { timeCounter } from '../ResultContainer/resultContainer'
+
 export const initBrainBoard = () => {
-  timeCounter(`${50} sec`)
+  timeCounter(`${50} s`)
   /* crear div para el board */
   let clickCount = 0
   let firstCard = ''
@@ -40,16 +41,13 @@ export const initBrainBoard = () => {
       /* si es el primer click que se hace */
       if (clickCount === 1) {
         cardId = currentCard.parentNode.id
-        console.log(`card Id is: ${cardId}`)
+
         firstCard = currentCard.parentNode.dataset.name
         currentCard.parentNode.classList.add('card-selected')
       } else {
         /* si no es el primer click (tienen que ser el segundo a la fuerza) */
         /* si no se ha clicado sobre la misma carta que en el primer click */
         if (cardId !== currentCard.parentNode.id) {
-          console.log(
-            `cardId es: ${cardId} & currentcardId es: ${currentCard.id}`
-          )
           secondCard = currentCard.parentNode.dataset.name
           currentCard.parentNode.classList.add('card-selected')
         } else {
@@ -60,19 +58,20 @@ export const initBrainBoard = () => {
       }
 
       /* asignar el match o el reset */
-      console.log(`firstCard is:${firstCard} & second card is: ${secondCard}`)
+
       if (firstCard !== '' && secondCard !== '') {
         if (firstCard === secondCard) {
           setTimeout(() => {
             cardMatch()
             resetGame()
             GameSolved(clickCount)
-          }, 700)
+            checkDone()
+          }, 500)
         } else {
           setTimeout(() => {
             resetGame()
             GameSolved(clickCount)
-          }, 700)
+          }, 500)
         }
       }
     }
@@ -102,7 +101,7 @@ export const initBrainBoard = () => {
     cell.append(backDiv)
   }
   /* inicializar la ventana modal de start */
-  getReady()
+  // getReady()
 
   return board
 }

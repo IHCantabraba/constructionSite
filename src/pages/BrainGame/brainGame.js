@@ -15,7 +15,7 @@ export const initBrainGame = (textContent) => {
       initGame()
       const BoardBrain = document.querySelector('.boardBrain')
       BoardBrain.classList.remove('hide')
-      const timeOut = ExpiredTime()
+      // ExpiredTime()
     }
   })
   return buttonBrainGame
