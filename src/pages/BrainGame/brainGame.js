@@ -1,9 +1,10 @@
 import { initGame } from '../../components/utils/BrainGame/InitGame/initGame'
-import { ExpiredTime } from '../../components/utils/BrainGame/functions/funtions'
+import { resetTimer } from '../../components/utils/BrainGame/functions/funtions'
 import './brainGame.css'
 
 /* función para el botón del juego en el header */
 export const initBrainGame = (textContent) => {
+  resetTimer()
   const buttonBrainGame = document.createElement('button')
   buttonBrainGame.textContent = textContent
   /* listener del botón del header */

@@ -42,56 +42,26 @@ export const GameSolved = (clickCount) => {
       done = true
       console.log('todas emparejadas')
       const msg = 'Game Completed'
+      clearInterval(counter)
       endGame(msg)
     }
   }
 }
-
+/* mostrar la ventana modal de timeout al pasar 50 segundos */
 export const ExpiredTime = () => {
   gameTime = setTimeout(() => {
     endGame('Time Out')
   }, 50000)
   return gameTime
 }
+/* comprobar si se ha terminado el juego cada vez que se clica en una carta*/
 export const checkDone = () => {
   if (done) {
     clearTimeout(gameTime)
     done = !done
   }
 }
-// const reduceTimeLeft = () => {
-//   const timer = document.querySelector('.timer')
-//   const restTime = Number(timer.textContent.split(' ')[0])
-//   if (restTime >= 1) {
-//     timer.innerHTML = `${restTime - 1}  s`
-//   } else {
-//     timer.innerHTML = '¡Time Out!'
-//   }
-// }
-
-// export const callTimeleft = () => {
-//   counter = setTimeout(() => {
-//     setInterval(reduceTimeLeft, 1000)
-//   }, 1000)
-//   counter = setInterval(reduceTimeLeft, 1000)
-// }
-
-// export const callTimeleft = () => {
-//   setTimeout(() => {
-//     counter = setInterval(() => {
-//       const timer = document.querySelector('.timer')
-//       const restTime = Number(timer.textContent.split(' ')[0])
-//       if (restTime >= 1) {
-//         timer.innerHTML = `${restTime - 1}  s`
-//       } else {
-//         timer.innerHTML = '¡Time Out!'
-//         clearInterval(counter)
-//       }
-//     }, 1000)
-//   }, 1000)
-//   counter = setInterval(reduceTimeLeft, 1000)
-// }
-
+/* intervalo para ir mostrando el tiempo restante */
 export const startBackcount = () => {
   counter = setInterval(() => {
     const timer = document.querySelector('.timer')
@@ -105,6 +75,7 @@ export const startBackcount = () => {
     }
   }, 1000)
   setTimeout(() => {
+    console.log(counter)
     clearInterval(counter)
   }, 55000)
 }
@@ -112,4 +83,8 @@ export const startBackcount = () => {
 export const resetTimeLeft = () => {
   const time = document.querySelector('.timer')
   time.innerHTML = '50 s'
+}
+
+export const resetTimer = () => {
+  clearInterval(counter)
 }

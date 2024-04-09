@@ -4,6 +4,7 @@ import './getReadyModal.css'
 import {
   ExpiredTime,
   resetTimeLeft,
+  resetTimer,
   startBackcount
 } from '../functions/funtions'
 
@@ -18,16 +19,13 @@ export const getReady = () => {
     divBtn = document.createElement('button')
     divBtn.classList.add('ReadyBtn')
   }
-  // const divMsg = createDiv('get-ready-msg', 'winninMsg-brain')
-  // if (document.querySelector('.get-ready-msg')) {
-  //   divMsg.classList.remove('hide')
-  // }
 
   // const divBtn = document.createElement('button')
   divBtn.id = 'PlayBtn'
   divBtn.textContent = 'Start'
   /* resetar las classes de cada carta */
   divBtn.addEventListener('click', () => {
+    resetTimer()
     divBtn.classList.add('hide')
     /* mostrar las cartas y esconderlas */
     setTimeout(() => {
