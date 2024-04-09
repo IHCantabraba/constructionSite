@@ -1,13 +1,59 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 :root {
+  /* General */
+  --drop-shadow: drop-shadow(2px 8px 10px #918989);
   --ihc-buton-text-size: 15px;
   --ihc-buton-Braduis: 15px;
+  /* Header */
   --ihc-header-height: 100px;
+  --ihc-header-Btn-BG: rgb(236, 204, 145);
+  /* HEader Btn  */
+  --ihc-Hedaer-Btn-padding: 0.2rem 0.4rem;
+  --ihc-Header-Btn-border-radius: 0.6rem;
+  --ihc-Header-Btn-font-size: 2rem;
+  --ihc-Header-Btn-BG-color: rgb(236, 204, 145);
+  --ihc-Header-Btn-HOVER-BG-color: rgb(226, 176, 82);
+  --ihc-Header-Btn-HOVER-scale: scale(1.1);
+
+  --ihc-Header-Btn-dropShadow: drop-shadow(5px 6px 10px #000000);
+
+  /* Footer */
   --ihc-footer-height: 150px;
+  /* body */
+  --ihc-body-background: rgb(192, 221, 231);
+  /* Cells */
   --ihc-cell-size: 100px;
   --ihc-mark-size: calc(var(--ihc-cell-size) * 0.9);
   --ihc-gap-default: 5px;
   --ihc-result-text-color-general: rgb(133, 133, 133);
+  /* content */
+  --ihc-content-margin: 0px 20px;
+  --ihc-content-gap: 2rem;
+  /*Results div */
+  --ihc-results-div-gap: 0.3rem;
+  --ihc-results-font-size: 1.5rem;
+  --ihc-results-font-weight: bold;
+  --ihc-timer-color: rgb(236, 82, 16);
+  --ihc-results-margin-left: 4rem;
+  /* legend*/
+  --ihc-legend-gap: 1rem;
+  /* Modal's */
+  /* BTN's  */
+  --ihc-Btn-Modal-text-size: 3rem;
+  --ihc-Btn-Modal-padding: 0.25rem 0.5rem;
+  --ihc-Btn-Modal-Border: 1px solid black;
+  --ihc-Btn-Modal-border-radius: 5px;
+  --ihc-Btn-Modal-BG-color: white;
+  --ihc-Btn-HOVER-color: white;
+  --ihc-Btn-HOVER-border-color: white;
+  --ihc-Btn-HOVER-BG-color: black;
+  /* mainDiv  */
+  --ihc-Modal-Div-position: fixed;
+  --ihc-Modal-Div-Opacity: 10;
+  --ihc-Modal-Div-corners: 0;
+  --ihc-Modal-Div-Gb-color: rgba(0, 0, 0, 0.8);
+  --ihc-Modal-text-font-size: 5rem;
+  --ihc-Modal-text-color: white;
 }
 * {
   margin: 0;
@@ -18,7 +64,7 @@
 
 body {
   height: 100%;
-  background: rgb(192, 221, 231);
+  background: var(--ihc-body-background);
   /* linear-gradient(90deg, rgba(5, 4, 22, 1) 0%, rgba(31, 17, 5, 1) 27%, rgba(186, 131, 58, 1) 100%);  */
   overflow-y: hidden;
 }
@@ -32,5 +78,9 @@ main {
 
 .content {
   min-height: calc(100vh - var(--ihc-header-height) - var(--ihc-footer-height));
-  margin: 0px 20px;
+  margin: var(--ihc-content-margin);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--ihc-content-gap);
 }
