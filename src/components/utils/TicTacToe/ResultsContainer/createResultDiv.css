@@ -1,11 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Tilt+Neon:XROT@-4&display=swap');
+
+:root {
+  --drop-shadow: drop-shadow(5px 6px 10px #000000);
+}
+
+* {
+  font-family: 'Lobster';
+}
 .selectorX,
 .selectorO {
-  border-radius: 5px;
+  border-radius: var(--ihc-selector-border-radius);
   text-align: center;
-  height: 3vh;
+  height: var(--ihc-selector-height);
   background-color: rgb(239, 238, 238);
-  border: 0.4px solid gray;
+  border: var(--ihc-turn-selector-border);
   font-weight: bold;
+  width: 6rem;
+  font-family: 'Lobster';
+  font-size: 1.2rem;
 }
 
 .selectorX:hover,
@@ -26,15 +38,23 @@
 }
 .turnText {
   color: var(--ihc-result-text-color-general);
+  font-family: 'Lobster';
+  font-size: var(--ihc-Turno-font-size);
+}
+.turno {
+  display: flex;
+  flex-direction: row;
 }
 .turnValue {
   font-weight: bold;
+  font-family: 'Lobster';
 }
 .general-vid {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  gap: 2rem;
 }
 .results-div {
   display: flex;
@@ -53,17 +73,18 @@
 .result-totals {
   display: flex;
   flex-direction: row;
-  margin: 3px 8px;
+  margin: var(--ihc-result-margin);
 }
 .result-totals {
-  filter: drop-shadow(5px 6px 10px #000000);
+  filter: var(--drop-shadow);
 }
 .Xtext,
 .Otext,
 .Drawntext,
 .total-games {
-  font-size: 25px;
+  font-size: 1.2rem;
   font-weight: bold;
+  font-family: 'Lobster';
 }
 .result-count-x-value,
 .result-count-o-value,
@@ -73,5 +94,6 @@
   min-width: 30px;
   margin-left: 5px;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 20px;
+  font-family: 'Lobster';
 }

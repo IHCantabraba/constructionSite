@@ -56,10 +56,10 @@ export function createResultsDiv(ScoreX, ScoreO, Drawns, Totals) {
   textDiv.className = 'text-div'
   const turnText = document.createElement('p')
   turnText.className = 'turnText'
-  turnText.textContent = 'Turno de: '
+  turnText.textContent = 'Turn of: '
   const turnValue = document.createElement('p')
   turnValue.className = 'turnValue'
-  turnValue.textContent = '-'
+  turnValue.textContent = 'X'
   textDiv.append(turnText)
   textDiv.append(turnValue)
   /* crear div para insertar selector de quién comienza */

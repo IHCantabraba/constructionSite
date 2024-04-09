@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Tilt+Neon:XROT@-4&display=swap');
+
 * {
   font-family: 'EDU+NSW+ACT+Foundation', sans-serif;
 }
@@ -20,6 +21,9 @@
 }
 .winning-msg-brain.hide {
   display: none;
+}
+.data-winning-msg-text {
+  font-family: 'Lobster';
 }
 #restartBtn {
   font-size: var(--ihc-Btn-Modal-text-size);

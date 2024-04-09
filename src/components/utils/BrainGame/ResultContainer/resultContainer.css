@@ -22,5 +22,5 @@
   font-size: var(--ihc-results-font-size);
   font-weight: var(--ihc-results-font-weight);
   font-family: 'Lobster', sans-serif;
-  filter: var(--drop-shadow);
+  /* filter: var(--drop-shadow); */
 }

@@ -2,7 +2,7 @@ header {
   display: flex;
   flex-direction: column;
   height: var(--ihc-header-height);
-  padding: 0.8rem;
+  padding: var(--ihc-Header-padding);
   justify-content: space-around;
   align-items: center;
 }
@@ -11,5 +11,5 @@ header {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 3vw;
+  gap: var(--header-div-gap);
 }

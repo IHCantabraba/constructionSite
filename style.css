@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Tilt+Neon:XROT@-4&display=swap');
+
 :root {
   /* General */
   --drop-shadow: drop-shadow(2px 8px 10px #918989);
@@ -7,6 +8,8 @@
   /* Header */
   --ihc-header-height: 100px;
   --ihc-header-Btn-BG: rgb(236, 204, 145);
+  --ihc-Header-padding: 0.8rem;
+  --ihc-Header-div-gap: 1.2rem;
   /* HEader Btn  */
   --ihc-Hedaer-Btn-padding: 0.2rem 0.4rem;
   --ihc-Header-Btn-border-radius: 0.6rem;
@@ -14,30 +17,35 @@
   --ihc-Header-Btn-BG-color: rgb(236, 204, 145);
   --ihc-Header-Btn-HOVER-BG-color: rgb(226, 176, 82);
   --ihc-Header-Btn-HOVER-scale: scale(1.1);
-
   --ihc-Header-Btn-dropShadow: drop-shadow(5px 6px 10px #000000);
-
   /* Footer */
-  --ihc-footer-height: 150px;
+  --ihc-footer-height: 4rem;
+  --ihc-footer-gap: 1rem;
   /* body */
   --ihc-body-background: rgb(192, 221, 231);
+  /* content */
+  --ihc-content-margin: 0px 20px;
+  --ihc-content-gap: 2rem;
   /* Cells */
   --ihc-cell-size: 100px;
   --ihc-mark-size: calc(var(--ihc-cell-size) * 0.9);
   --ihc-gap-default: 5px;
   --ihc-result-text-color-general: rgb(133, 133, 133);
-  /* content */
-  --ihc-content-margin: 0px 20px;
-  --ihc-content-gap: 2rem;
-  /*Results div */
+  /* Results div TicTacToe */
+  --ihc-result-margin: 3px 8px;
+  --ihc-selector-border-radius: 5px;
+  --ihc-selector-height: 3vh;
+  --ihc-Turno-font-size: 1.5rem;
+  /*Results div BrainGame */
   --ihc-results-div-gap: 0.3rem;
   --ihc-results-font-size: 1.5rem;
   --ihc-results-font-weight: bold;
   --ihc-timer-color: rgb(236, 82, 16);
   --ihc-results-margin-left: 4rem;
-  /* legend*/
+  --ihc-turn-selector-border: 0.4px solid gray;
+  /* legend BrainGame */
   --ihc-legend-gap: 1rem;
-  /* Modal's */
+  /* Modal's  */
   /* BTN's  */
   --ihc-Btn-Modal-text-size: 3rem;
   --ihc-Btn-Modal-padding: 0.25rem 0.5rem;
@@ -58,7 +66,7 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: 'VT323', sans-serif;
+  font-family: 'Lobster', sans-serif;
   box-sizing: border-box;
 }
 

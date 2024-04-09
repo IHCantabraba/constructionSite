@@ -34,5 +34,6 @@
   color: white;
 }
 .data-winning-msg-text {
-  font-size: 3rem;
+  font-size: var(--ihc-Btn-Modal-text-size);
+  font-family: 'Lobster';
 }

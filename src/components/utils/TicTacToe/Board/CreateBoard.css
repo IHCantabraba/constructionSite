@@ -1,20 +1,30 @@
+:root {
+  /* Board */
+  --ihc-board-position: fixed;
+  --ihc-board-translate: translate(-50%, -50%);
+  --ihc-board-filter: drop-shadow(5px 6px 10px #000000);
+  /* Cell */
+  --ihc-board-filter: 1px solid black;
+  --ihc-cell-border: none;
+  /* chips */
+  --ihc-chip-hover-color: rgb(142, 141, 141);
+}
+
 .board {
-  position: fixed;
+  position: var(--ihc-board-position);
   display: grid;
-  top: 70%;
+  top: 60%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: var(--ihc-board-translate);
   justify-content: center;
   align-content: center;
   grid-template-columns: repeat(3, auto);
-  filter: drop-shadow(5px 6px 10px #000000);
+  filter: var(--ihc-board-filter);
 }
 .cell {
   width: var(--ihc-cell-size);
   height: var(--ihc-cell-size);
   border: 1px solid black;
-  justify-items: center;
-  align-items: center;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,24 +35,24 @@
 .cell:first-child,
 .cell:nth-child(2),
 .cell:nth-child(3) {
-  border-top: none;
+  border-top: var(--ihc-cell-border);
 }
 .cell:nth-child(3n + 1) {
-  border-left: none;
+  border-left: var(--ihc-cell-border);
 }
 .cell:nth-child(3n + 3) {
-  border-right: none;
+  border-right: var(--ihc-cell-border);
 }
 .cell:last-child,
 .cell:nth-child(8),
 .cell:nth-child(7) {
-  border-bottom: none;
+  border-bottom: var(--ihc-cell-border);
 }
 /* no permitir cursosr donde ya hay elemento*/
 .cell.o {
   cursor: not-allowed;
 }
-/* se define aquí para evitar que s epise en tre el hover y el introducido*/
+/* se define aquí para evitar que se pise entre el hover y el introducido */
 .cell.x::before,
 .cell.x::after,
 .cell.o:before,
@@ -53,7 +63,7 @@
 .board.x .cell:not(.x):not(.o):hover::before,
 .board.x .cell:not(.x):not(.o):hover::after,
 .board.o .cell:not(.o):not(.x):hover::before {
-  background-color: rgb(142, 141, 141);
+  background-color: var(--ihc-chip-hover-color);
 }
 
 /* crear las X  */

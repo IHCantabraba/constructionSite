@@ -40,8 +40,7 @@ export const GameSolved = (clickCount) => {
 
     if (MachedCars.length === 16) {
       done = true
-      console.log('todas emparejadas')
-      const msg = 'Game Completed'
+      const msg = 'Solved'
       clearInterval(counter)
       endGame(msg)
     }

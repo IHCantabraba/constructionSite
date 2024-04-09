@@ -1,42 +1,14 @@
-.divTotal {
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Tilt+Neon:XROT@-4&display=swap');
+
+.footer {
+  height: var(--ihc-footer-height);
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
-  width: var(--ihc-footer-height);
+  justify-content: center;
+  gap: var(--ihc-footer-gap);
 }
-.cesta {
-  position: absolute;
-  z-index: 9999;
-  right: 20px;
-  bottom: 20px;
-  width: 80px;
-  height: 80px;
-}
-.textoContador {
-  right: 1px;
-  bottom: 40px;
-  position: absolute;
-  z-index: 10000;
-  font-size: 30px;
-  width: 70px;
-}
-.produccion {
-  position: absolute;
-  z-index: 9999;
-  right: 20px;
-  bottom: 10px;
-  width: 40px;
-  height: 40px;
-}
-.produccion.animation {
-  animation: giro 0.5s;
-}
-@keyframes giro {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.footer > p {
+  font-family: 'Lobster', sans-serif;
+  font-weight: bold;
 }
