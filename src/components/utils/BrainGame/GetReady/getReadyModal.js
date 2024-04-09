@@ -7,6 +7,7 @@ import {
   resetTimer,
   startBackcount
 } from '../functions/funtions'
+import { resetLegendElement } from '../LegendCards/legendCards'
 
 export const getReady = () => {
   const appDiv = document.querySelector('#app')
@@ -25,6 +26,7 @@ export const getReady = () => {
   divBtn.textContent = 'Start'
   /* resetar las classes de cada carta */
   divBtn.addEventListener('click', () => {
+    // resetLegendElement()
     resetTimer()
     divBtn.classList.add('hide')
     /* mostrar las cartas y esconderlas */
@@ -41,6 +43,7 @@ export const getReady = () => {
     // callTimeleft()
     startBackcount()
     resetTimeLeft()
+    resetLegendElement()
   })
 
   divMsg.append(divBtn)

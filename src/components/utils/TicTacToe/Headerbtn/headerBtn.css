@@ -1,24 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Tilt+Neon:XROT@-4&display=swap');
+
 header button {
-  padding: 5px 12px;
-  border-radius: 8px;
-  font-size: 25px;
-  background-color: rgb(236, 204, 145);
+  padding: var(--ihc-Hedaer-Btn-padding);
+  border-radius: var(--ihc-Header-Btn-border-radius);
+  font-size: var(--ihc-Header-Btn-font-size);
+  background-color: var(--ihc-Header-Btn-BG-color);
   border: none; /*3px solid black*/
   cursor: pointer;
-  font-weight: bold;
+  font-weight: var(--ihc-results-font-weight);
   /* margin-top: 20px; */
-  filter: drop-shadow(5px 6px 10px #000000);
+  filter: var(--ihc-Header-Btn-dropShadow);
+  font-family: 'Lobster', sans-serif;
 }
 header button:hover {
-  background-color: rgb(226, 176, 82);
-  transform: scale(1.1);
+  background-color: var(--ihc-Header-Btn-HOVER-BG-color);
+  transform: var(--ihc-Header-Btn-HOVER-scale);
 }
 .Butonsdiv {
+  padding: var(--ihc-Hedaer-Btn-padding);
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 15px;
 }
 
 @media (max-width: 480px) {

@@ -1,14 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Tilt+Neon:XROT@-4&display=swap');
+
 .brain-result-div {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  align-self: flex-start;
+  margin-left: var(--ihc-results-margin-left);
+  gap: var(--ihc-results-div-gap);
 }
 
 .timer {
-  font-weight: bold;
-  color: rgb(241, 137, 27);
+  font-size: var(--ihc-results-font-size);
+  color: var(--ihc-timer-color);
+  filter: var(--drop-shadow);
+  font-weight: var(--ihc-results-font-weight);
+  font-family: 'Lobster', sans-serif;
 }
 .timer-text {
   color: var(--ihc-result-text-color-general);
+  font-size: var(--ihc-results-font-size);
+  font-weight: var(--ihc-results-font-weight);
+  font-family: 'Lobster', sans-serif;
+  filter: var(--drop-shadow);
 }

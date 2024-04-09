@@ -1,5 +1,3 @@
-import './gameImgArr.css'
-
 export const imgBunch = [
   {
     url: 'https://res.cloudinary.com/df7b0dj9r/image/upload/v1712474820/react_not51x.png',

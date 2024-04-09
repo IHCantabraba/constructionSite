@@ -1,34 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Tilt+Neon:XROT@-4&display=swap');
+
 .get-ready-msg {
-  position: fixed;
-  opacity: 10;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.8);
+  position: var(--ihc-Modal-Div-position);
+  opacity: var(--ihc-Modal-Div-Opacity);
+  top: var(--ihc-Modal-Div-corners);
+  left: var(--ihc-Modal-Div-corners);
+  bottom: var(--ihc-Modal-Div-corners);
+  right: var(--ihc-Modal-Div-corners);
+  background-color: var(--ihc-Modal-Div-Gb-color);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white;
-  font-size: 5rem;
+  color: var(--ihc-Modal-text-color);
+  font-size: var(--ihc-Modal-text-font-size);
   z-index: 1000001;
 }
 .get-ready-msg.hide {
   display: none;
 }
 #PlayBtn {
-  font-size: 3rem;
-  background-color: white;
+  font-size: var(--ihc-Btn-Modal-text-size);
+  background-color: var(--ihc-Btn-Modal-BG-color);
   cursor: pointer;
-  padding: 0.25rem 0.5rem;
-  border: 1px solid black;
-  border-radius: 5px;
+  padding: var(--ihc-Btn-Modal-padding);
+  border: var(--ihc-Btn-Modal-Border);
+  border-radius: var(--ihc-Btn-Modal-border-radius);
+  font-family: 'Lobster', sans-serif;
 }
 #PlayBtn:hover {
-  background-color: black;
-  border-color: white;
-  color: white;
+  background-color: var(--ihc-Btn-HOVER-BG-color);
+  border-color: var(--ihc-Btn-HOVER-border-color);
+  color: var(--ihc-Btn-HOVER-color);
 }
 
 .hide {

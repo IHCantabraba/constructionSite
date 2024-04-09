@@ -1,9 +1,15 @@
 import './BrainBoard.css'
 import { createDiv } from '../../TicTacToe/CreateDiv'
 import { imgBunch } from '../GameImage/gameImgArr'
-import { GameSolved, cardMatch, checkDone } from '../functions/funtions'
+import {
+  GameSolved,
+  cardMatch,
+  checkDone,
+  removelegendElement
+} from '../functions/funtions'
 import { getReady } from '../GetReady/getReadyModal'
 import { timeCounter } from '../ResultContainer/resultContainer'
+import { insertLegendCard } from '../LegendCards/legendCards'
 
 export const initBrainBoard = () => {
   timeCounter(`${50} s`)
@@ -63,6 +69,7 @@ export const initBrainBoard = () => {
         if (firstCard === secondCard) {
           setTimeout(() => {
             cardMatch()
+            removelegendElement(firstCard)
             resetGame()
             GameSolved(clickCount)
             checkDone()
@@ -100,8 +107,9 @@ export const initBrainBoard = () => {
     cell.append(frontDiv)
     cell.append(backDiv)
   }
-  /* inicializar la ventana modal de start */
-  // getReady()
+
+  /* llamar a función insert leyendCard */
+  insertLegendCard(imgBunch)
 
   return board
 }

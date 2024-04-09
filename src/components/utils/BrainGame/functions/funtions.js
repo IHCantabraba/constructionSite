@@ -51,7 +51,7 @@ export const GameSolved = (clickCount) => {
 export const ExpiredTime = () => {
   gameTime = setTimeout(() => {
     endGame('Time Out')
-  }, 50000)
+  }, 51000)
   return gameTime
 }
 /* comprobar si se ha terminado el juego cada vez que se clica en una carta*/
@@ -75,16 +75,20 @@ export const startBackcount = () => {
     }
   }, 1000)
   setTimeout(() => {
-    console.log(counter)
     clearInterval(counter)
   }, 55000)
 }
-
+/* resetaer el valor del contador */
 export const resetTimeLeft = () => {
   const time = document.querySelector('.timer')
   time.innerHTML = '50 s'
 }
-
+/* resetear el intervalo */
 export const resetTimer = () => {
   clearInterval(counter)
+}
+
+export const removelegendElement = (name) => {
+  const legendElement = document.querySelector(`.${name}`)
+  legendElement.classList.add('hide')
 }
