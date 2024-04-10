@@ -1,5 +1,5 @@
 import { initBoard } from '../../../../pages/TicTacToe/TicTacToe'
-import { resetTimer } from '../../BrainGame/functions/funtions'
+import { deleteTimers } from '../../BrainGame/functions/funtions'
 import './headerBtn.css'
 
 export const createHeaderBtn = (textContent) => {
@@ -10,7 +10,7 @@ export const createHeaderBtn = (textContent) => {
 
   /* iniciar página Tres en raya */
   buttonTicTac.addEventListener('click', () => {
-    resetTimer()
+    deleteTimers()
     if (!document.querySelector('.board')) {
       const content = document.querySelector('.content')
       content.innerHTML = ''

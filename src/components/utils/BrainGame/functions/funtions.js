@@ -86,6 +86,10 @@ export const resetTimeLeft = () => {
 export const resetTimer = () => {
   clearInterval(counter)
 }
+export const deleteTimers = () => {
+  clearInterval(counter)
+  clearTimeout(gameTime)
+}
 
 export const removelegendElement = (name) => {
   const legendElement = document.querySelector(`.${name}`)
