@@ -6,7 +6,7 @@
   --ihc-buton-text-size: 15px;
   --ihc-buton-Braduis: 15px;
   /* Header */
-  --ihc-header-height: 6rem;
+  --ihc-header-height: 150px;
   --ihc-header-Btn-BG: rgb(236, 204, 145);
   --ihc-Header-padding: 0.8rem;
   --ihc-Header-div-gap: 0.5rem;
@@ -19,13 +19,13 @@
   --ihc-Header-Btn-HOVER-scale: scale(1.1);
   --ihc-Header-Btn-dropShadow: drop-shadow(5px 6px 10px #000000);
   /* Footer */
-  --ihc-footer-height: 4rem;
+  --ihc-footer-height: 50px;
   --ihc-footer-gap: 1rem;
   /* body */
   --ihc-body-background: rgb(192, 221, 231);
   /* content */
-  --ihc-content-margin: 0rem 1rem;
-  --ihc-content-gap: 2rem;
+  --ihc-content-margin: 0rem 1rem 0rem 1rem;
+  --ihc-content-gap: 1rem;
   /* Cells */
   --ihc-cell-size: 100px;
   --ihc-mark-size: calc(var(--ihc-cell-size) * 0.9);
