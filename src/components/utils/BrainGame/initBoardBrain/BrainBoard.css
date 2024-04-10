@@ -58,6 +58,7 @@
 }
 .card-match .frontCard {
   background-color: var(--ihc-matched-card);
+  cursor: not-allowed;
 }
 
 .showCard {

@@ -3,6 +3,8 @@
   --ihc-board-position: fixed;
   --ihc-board-translate: translate(-50%, -50%);
   --ihc-board-filter: drop-shadow(5px 6px 10px #000000);
+  --ihc-board-top: 60%;
+  --ihc-board-left: 50%;
   /* Cell */
   --ihc-board-filter: 1px solid black;
   --ihc-cell-border: none;
@@ -13,8 +15,8 @@
 .board {
   position: var(--ihc-board-position);
   display: grid;
-  top: 60%;
-  left: 50%;
+  top: var(--ihc-board-top);
+  left: var(--ihc-board-left);
   transform: var(--ihc-board-translate);
   justify-content: center;
   align-content: center;

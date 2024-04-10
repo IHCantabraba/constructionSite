@@ -1,3 +1,6 @@
+/* :root {
+  --ihc-Header-div-gap: 1.2rem;
+} */
 header {
   display: flex;
   flex-direction: column;
@@ -11,5 +14,5 @@ header {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: var(--header-div-gap);
+  gap: var(--ihc-Header-div-gap);
 }

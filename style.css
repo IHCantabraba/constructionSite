@@ -6,10 +6,10 @@
   --ihc-buton-text-size: 15px;
   --ihc-buton-Braduis: 15px;
   /* Header */
-  --ihc-header-height: 100px;
+  --ihc-header-height: 6rem;
   --ihc-header-Btn-BG: rgb(236, 204, 145);
   --ihc-Header-padding: 0.8rem;
-  --ihc-Header-div-gap: 1.2rem;
+  --ihc-Header-div-gap: 0.5rem;
   /* HEader Btn  */
   --ihc-Hedaer-Btn-padding: 0.2rem 0.4rem;
   --ihc-Header-Btn-border-radius: 0.6rem;
@@ -24,7 +24,7 @@
   /* body */
   --ihc-body-background: rgb(192, 221, 231);
   /* content */
-  --ihc-content-margin: 0px 20px;
+  --ihc-content-margin: 0rem 1rem;
   --ihc-content-gap: 2rem;
   /* Cells */
   --ihc-cell-size: 100px;
