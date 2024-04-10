@@ -7,7 +7,6 @@ import {
   checkDone,
   removelegendElement
 } from '../functions/funtions'
-import { getReady } from '../GetReady/getReadyModal'
 import { timeCounter } from '../ResultContainer/resultContainer'
 import { insertLegendCard } from '../LegendCards/legendCards'
 
@@ -17,14 +16,16 @@ export const initBrainBoard = () => {
   let clickCount = 0
   let firstCard = ''
   let secondCard = ''
-  let cardId
+  let cardId1
+  let cardId2
 
   /* resetear los contadores una vez que se hayan seleccionado dos cartas */
   const resetGame = () => {
     clickCount = 0
     firstCard = ''
     secondCard = ''
-    cardId = ''
+    cardId1 = ''
+    cardId2 = ''
     let cardSelected = document.querySelectorAll('.card-selected')
     cardSelected.forEach((element) => {
       element.classList.remove('card-selected')
@@ -46,18 +47,18 @@ export const initBrainBoard = () => {
     if (clickCount < 3) {
       /* si es el primer click que se hace */
       if (clickCount === 1) {
-        cardId = currentCard.parentNode.id
-
+        cardId1 = currentCard.parentNode.id
         firstCard = currentCard.parentNode.dataset.name
         currentCard.parentNode.classList.add('card-selected')
       } else {
-        /* si no es el primer click (tienen que ser el segundo a la fuerza) */
-        /* si no se ha clicado sobre la misma carta que en el primer click */
-        if (cardId !== currentCard.parentNode.id) {
+        /* si no es el primer click (tienen que ser el segundo a la fuerza)
+          ...si no se ha clicado sobre la misma carta que en el primer click */
+        if (cardId1 !== currentCard.parentNode.id) {
           secondCard = currentCard.parentNode.dataset.name
           currentCard.parentNode.classList.add('card-selected')
         } else {
           /* si se ha clicado sobre la misma carta que en el primer click */
+          cardId2 = currentCard.parentNode.id
           secondCard = currentCard.parentNode.dataset.name
           currentCard.parentNode.classList.remove('card-selected')
         }
@@ -71,21 +72,24 @@ export const initBrainBoard = () => {
             /* asigan clase card-match a las cartas */
             cardMatch()
             /* elimina de la leyenda el icono de lenguaje */
-            removelegendElement(firstCard)
+            if (cardId1 !== cardId2) {
+              console.log(cardId1, cardId2)
+              removelegendElement(firstCard)
+            }
             /* resetea valores de clicks */
             resetGame()
-            /* comprueba si todas las cartas se han emparejado (tienen la clase card-match) */
-            /* asigna  true a la variable done */
+            /* comprueba si todas las cartas se han emparejado (tienen la clase card-match) 
+             ...asigna  true a la variable done */
             GameSolved(clickCount)
-            /* si la variable "done" === true elimina el time out del Modal de "TimeOut"  */
-            /* y llama a endGame() */
+            /* si la variable "done" === true elimina 
+              ...el time out del Modal de "TimeOut"  
+              ...y llama a endGame() */
             checkDone()
           }, 500)
         } else {
           setTimeout(() => {
             /* resetea valores de clicks */
             resetGame()
-            // GameSolved(clickCount)
           }, 500)
         }
       }

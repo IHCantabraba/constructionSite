@@ -30,8 +30,6 @@ export const resetLegendElement = () => {
       document.querySelector('.legendDiv').getElementsByClassName('legendCard')
     )
     if (childrens.length > 0) {
-      console.log('found children')
-      console.log(childrens[0])
       childrens.forEach((e) => {
         e.classList.remove('hide')
       })

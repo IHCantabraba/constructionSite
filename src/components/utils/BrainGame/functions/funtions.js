@@ -35,6 +35,7 @@ export const GameSolved = (clickCount) => {
     const MachedCars = document.querySelectorAll('.card-match')
 
     if (MachedCars.length === 16) {
+      console.log('solved')
       done = true
       msg = 'Solved'
       deleteTimers()

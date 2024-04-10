@@ -1,6 +1,7 @@
 import { initBrainGame } from '../../../../pages/BrainGame/brainGame'
 import { createDiv } from '../../TicTacToe/CreateDiv'
 import { getReady } from '../GetReady/getReadyModal'
+import { initGame } from '../InitGame/initGame'
 import { resetTimeLeft } from '../functions/funtions'
 
 import './endGame.css'
@@ -26,7 +27,9 @@ export const endGame = (msg) => {
       /* resetear el timer */
       resetTimeLeft()
       /* inicializar el juego de nuevo */
+      /* TODO Fix problem  should i call initBrainGame() or initGame()????? */
       initBrainGame()
+      // initGame()
       getReady()
 
       /* esconder la ventana modal */
