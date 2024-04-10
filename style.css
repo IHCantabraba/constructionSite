@@ -85,7 +85,9 @@ main {
 }
 
 .content {
-  max-height: calc(100vh - var(--ihc-header-height) - var(--ihc-footer-height));
+  min-height: calc(
+    100vh - var(--ihc-header-height) - var(--ihc-footer-height) - 50px
+  );
   margin: var(--ihc-content-margin);
   display: flex;
   flex-direction: column;
