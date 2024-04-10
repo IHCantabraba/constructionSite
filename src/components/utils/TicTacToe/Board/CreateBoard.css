@@ -3,7 +3,7 @@
   --ihc-board-position: fixed;
   --ihc-board-translate: translate(-50%, -50%);
   --ihc-board-filter: drop-shadow(5px 6px 10px #000000);
-  --ihc-board-top: 60%;
+  --ihc-board-top: 55%;
   --ihc-board-left: 50%;
   /* Cell */
   --ihc-board-filter: 1px solid black;
@@ -13,11 +13,11 @@
 }
 
 .board {
-  position: var(--ihc-board-position);
+  /* position: var(--ihc-board-position); */
   display: grid;
   top: var(--ihc-board-top);
   left: var(--ihc-board-left);
-  transform: var(--ihc-board-translate);
+  /* transform: var(--ihc-board-translate); */
   justify-content: center;
   align-content: center;
   grid-template-columns: repeat(3, auto);
