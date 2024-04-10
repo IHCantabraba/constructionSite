@@ -1,10 +1,10 @@
 import { initGame } from '../../components/utils/BrainGame/InitGame/initGame'
-import { resetTimer } from '../../components/utils/BrainGame/functions/funtions'
+import { deleteTimers } from '../../components/utils/BrainGame/functions/funtions'
 import './brainGame.css'
 
 /* función para el botón del juego en el header */
 export const initBrainGame = (textContent) => {
-  resetTimer()
+  deleteTimers()
   const buttonBrainGame = document.createElement('button')
   buttonBrainGame.textContent = textContent
   /* listener del botón del header */
@@ -16,7 +16,6 @@ export const initBrainGame = (textContent) => {
       initGame()
       const BoardBrain = document.querySelector('.boardBrain')
       BoardBrain.classList.remove('hide')
-      // ExpiredTime()
     }
   })
   return buttonBrainGame

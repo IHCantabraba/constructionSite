@@ -68,16 +68,24 @@ export const initBrainBoard = () => {
       if (firstCard !== '' && secondCard !== '') {
         if (firstCard === secondCard) {
           setTimeout(() => {
+            /* asigan clase card-match a las cartas */
             cardMatch()
+            /* elimina de la leyenda el icono de lenguaje */
             removelegendElement(firstCard)
+            /* resetea valores de clicks */
             resetGame()
+            /* comprueba si todas las cartas se han emparejado (tienen la clase card-match) */
+            /* asigna  true a la variable done */
             GameSolved(clickCount)
+            /* si la variable "done" === true elimina el time out del Modal de "TimeOut"  */
+            /* y llama a endGame() */
             checkDone()
           }, 500)
         } else {
           setTimeout(() => {
+            /* resetea valores de clicks */
             resetGame()
-            GameSolved(clickCount)
+            // GameSolved(clickCount)
           }, 500)
         }
       }

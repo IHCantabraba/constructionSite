@@ -2,12 +2,8 @@ import { endGame } from '../EndGame/endGame'
 let done = false
 let gameTime
 let counter
-/* generar random */
-// export function getRandomInt(min, max) {
-//   min = Math.ceil(min)
-//   max = Math.floor(max)
-//   return Math.floor(Math.random() * (max - min + 1)) + min
-// }
+let msg
+
 /* comprobar existencia del valor random */
 export function checkRandomExistance(UsedRandoms, randomNumber, exist) {
   if (!UsedRandoms.includes(randomNumber)) {
@@ -40,8 +36,8 @@ export const GameSolved = (clickCount) => {
 
     if (MachedCars.length === 16) {
       done = true
-      const msg = 'Solved'
-      clearInterval(counter)
+      msg = 'Solved'
+      deleteTimers()
       endGame(msg)
     }
   }
@@ -49,7 +45,8 @@ export const GameSolved = (clickCount) => {
 /* mostrar la ventana modal de timeout al pasar 50 segundos */
 export const ExpiredTime = () => {
   gameTime = setTimeout(() => {
-    endGame('Time Out')
+    msg = 'Time Out'
+    endGame(msg)
   }, 51000)
   return gameTime
 }

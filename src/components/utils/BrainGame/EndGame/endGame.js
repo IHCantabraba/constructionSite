@@ -13,7 +13,7 @@ export const endGame = (msg) => {
     divMsg.classList.remove('hide')
   } else {
     const divMsgTxt = createDiv('data-winning-msg-text')
-    divMsgTxt.textContent = `${msg}!`
+    divMsgTxt.innerHTML = `${msg}!`
     const divBtn = document.createElement('button')
     divBtn.id = 'restartBtn'
     divBtn.textContent = 'Play Again'
