@@ -1,10 +1,10 @@
-import { hideBoard, showBoard } from '../showBoard/showBoard'
 import { createDiv } from '../../TicTacToe/CreateDiv'
 import './getReadyModal.css'
 import {
   ExpiredTime,
   resetTimeLeft,
   resetTimer,
+  showBoardAtInitial,
   startBackcount
 } from '../functions/funtions'
 import { resetLegendElement } from '../LegendCards/legendCards'
@@ -30,17 +30,7 @@ export const getReady = () => {
     resetTimer()
     divBtn.classList.add('hide')
     /* mostrar las cartas y esconderlas */
-    setTimeout(() => {
-      /*mostrar cartas 250 secs despues de hacer click en Start */
-      showBoard()
-      /* esconder las cartas tras 1 segundo */
-      setTimeout(() => {
-        /* esconder las cartas */
-        hideBoard()
-        divBtn.classList.remove('hide')
-        divMsg.classList.add('hide')
-      }, 1000)
-    }, 250)
+    showBoardAtInitial(divBtn)
     /* inicia el timer out del juego 50 secs */
     ExpiredTime()
     /* comineza la cuenta atras en pantalla */

@@ -4,7 +4,6 @@ import { imgBunch } from '../GameImage/gameImgArr'
 import {
   GameSolved,
   cardMatch,
-  checkDone,
   removelegendElement
 } from '../functions/funtions'
 import { timeCounter } from '../ResultContainer/resultContainer'
@@ -15,20 +14,11 @@ let firstCard = ''
 let secondCard = ''
 let cardId1
 let cardId2
-const resetGame = () => {
-  /* resetear los contadores una vez que se hayan seleccionado dos cartas */
-  clickCount = 0
-  firstCard = ''
-  secondCard = ''
-  cardId1 = ''
-  cardId2 = ''
-  let cardSelected = document.querySelectorAll('.card-selected')
-  cardSelected.forEach((element) => {
-    element.classList.remove('card-selected')
-  })
-}
+
 export const initBrainBoard = () => {
   timeCounter(`${50} s`)
+  /* llamar a función insert leyendCard */
+  insertLegendCard(imgBunch)
 
   /* control clicks on board */
   const board = createDiv('boardBrain')
@@ -72,23 +62,18 @@ export const initBrainBoard = () => {
             cardMatch()
             /* elimina de la leyenda el icono de lenguaje */
             if (cardId1 !== cardId2) {
-              console.log(cardId1, cardId2)
               removelegendElement(firstCard)
             }
             /* resetea valores de clicks */
-            resetGame()
+            resetGameClicks()
             /* comprueba si todas las cartas se han emparejado (tienen la clase card-match) 
              ...asigna  true a la variable done */
             GameSolved(clickCount)
-            /* si la variable "done" === true elimina 
-              ...el time out del Modal de "TimeOut"  
-              ...y llama a endGame() */
-            checkDone()
           }, 500)
         } else {
           setTimeout(() => {
             /* resetea valores de clicks */
-            resetGame()
+            resetGameClicks()
           }, 500)
         }
       }
@@ -119,8 +104,17 @@ export const initBrainBoard = () => {
     cell.append(backDiv)
   }
 
-  /* llamar a función insert leyendCard */
-  insertLegendCard(imgBunch)
-
   return board
+}
+const resetGameClicks = () => {
+  /* resetear los contadores una vez que se hayan seleccionado dos cartas */
+  clickCount = 0
+  firstCard = ''
+  secondCard = ''
+  cardId1 = ''
+  cardId2 = ''
+  let cardSelected = document.querySelectorAll('.card-selected')
+  cardSelected.forEach((element) => {
+    element.classList.remove('card-selected')
+  })
 }

@@ -1,5 +1,6 @@
 import { endGame } from '../EndGame/endGame'
-let done = false
+import { showBoard, hideBoard } from '../showBoard/showBoard'
+// let done = false
 let gameTime
 let counter
 let msg
@@ -36,7 +37,7 @@ export const GameSolved = (clickCount) => {
 
     if (MachedCars.length === 16) {
       console.log('solved')
-      done = true
+      // done = true
       msg = 'Solved'
       deleteTimers()
       endGame(msg)
@@ -46,18 +47,19 @@ export const GameSolved = (clickCount) => {
 /* mostrar la ventana modal de timeout al pasar 50 segundos */
 export const ExpiredTime = () => {
   gameTime = setTimeout(() => {
+    console.log('Time Out')
     msg = 'Time Out'
     endGame(msg)
   }, 51000)
   return gameTime
 }
 /* comprobar si se ha terminado el juego cada vez que se clica en una carta*/
-export const checkDone = () => {
-  if (done) {
-    clearTimeout(gameTime)
-    done = !done
-  }
-}
+// export const checkDone = () => {
+//   if (done) {
+//     clearTimeout(gameTime)
+//     done = !done
+//   }
+// }
 /* intervalo para ir mostrando el tiempo restante */
 export const startBackcount = () => {
   counter = setInterval(() => {
@@ -67,13 +69,12 @@ export const startBackcount = () => {
       timer.innerHTML = `${restTime - 1}  s`
     } else {
       timer.innerHTML = '¡Time Out!'
-      console.log('stopping interval')
       clearInterval(counter)
     }
   }, 1000)
   setTimeout(() => {
     clearInterval(counter)
-  }, 55000)
+  }, 52000)
 }
 /* resetaer el valor del contador */
 export const resetTimeLeft = () => {
@@ -92,4 +93,22 @@ export const deleteTimers = () => {
 export const removelegendElement = (name) => {
   const legendElement = document.querySelector(`.${name}`)
   legendElement.classList.add('hide')
+}
+
+export const showBoardAtInitial = (divBtn) => {
+  /* mostrar las cartas y esconderlas */
+  /* ver por qué  divMsg si se lo paso como
+    ...parámetro desde getReadyModal llega com "Undefined" */
+  const divMsg = document.querySelector('.get-ready-msg')
+  setTimeout(() => {
+    /*mostrar cartas 250 secs despues de hacer click en Start */
+    showBoard()
+    /* esconder las cartas tras 1 segundo */
+    setTimeout(() => {
+      /* esconder las cartas */
+      hideBoard()
+      divBtn.classList.remove('hide')
+      divMsg.classList.add('hide')
+    }, 1000)
+  }, 250)
 }

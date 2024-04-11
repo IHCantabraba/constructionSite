@@ -2,16 +2,20 @@ import { initBrainGame } from '../../../../pages/BrainGame/brainGame'
 import { createDiv } from '../../TicTacToe/CreateDiv'
 import { getReady } from '../GetReady/getReadyModal'
 import { initGame } from '../InitGame/initGame'
-import { resetTimeLeft } from '../functions/funtions'
+import { deleteTimers, resetTimeLeft } from '../functions/funtions'
 
 import './endGame.css'
 
 export const endGame = (msg) => {
+  deleteTimers()
   const appDiv = document.querySelector('#app')
   const divMsg = createDiv('winning-msg-brain', 'winninMsg-brain')
   if (document.querySelector('.winning-msg-brain')) {
     const divMsg = document.querySelector('.winning-msg-brain')
+    const divMsgTxt = document.querySelector('.data-winning-msg-text')
+    console.log(divMsgTxt)
     divMsg.classList.remove('hide')
+    divMsgTxt.innerHTML = `${msg}!`
   } else {
     const divMsgTxt = createDiv('data-winning-msg-text')
     divMsgTxt.innerHTML = `${msg}!`
@@ -20,6 +24,7 @@ export const endGame = (msg) => {
     divBtn.textContent = 'Play Again'
     /* resetar las classes de cada carta */
     divBtn.addEventListener('click', () => {
+      divMsgTxt.innerHTML = ''
       const cards = document.querySelectorAll('.card')
       cards.forEach((e) => {
         e.classList.remove('card-match')
