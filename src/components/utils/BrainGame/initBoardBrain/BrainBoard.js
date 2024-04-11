@@ -9,28 +9,27 @@ import {
 } from '../functions/funtions'
 import { timeCounter } from '../ResultContainer/resultContainer'
 import { insertLegendCard } from '../LegendCards/legendCards'
-
+/* crear div para el board */
+let clickCount = 0
+let firstCard = ''
+let secondCard = ''
+let cardId1
+let cardId2
+const resetGame = () => {
+  /* resetear los contadores una vez que se hayan seleccionado dos cartas */
+  clickCount = 0
+  firstCard = ''
+  secondCard = ''
+  cardId1 = ''
+  cardId2 = ''
+  let cardSelected = document.querySelectorAll('.card-selected')
+  cardSelected.forEach((element) => {
+    element.classList.remove('card-selected')
+  })
+}
 export const initBrainBoard = () => {
   timeCounter(`${50} s`)
-  /* crear div para el board */
-  let clickCount = 0
-  let firstCard = ''
-  let secondCard = ''
-  let cardId1
-  let cardId2
 
-  /* resetear los contadores una vez que se hayan seleccionado dos cartas */
-  const resetGame = () => {
-    clickCount = 0
-    firstCard = ''
-    secondCard = ''
-    cardId1 = ''
-    cardId2 = ''
-    let cardSelected = document.querySelectorAll('.card-selected')
-    cardSelected.forEach((element) => {
-      element.classList.remove('card-selected')
-    })
-  }
   /* control clicks on board */
   const board = createDiv('boardBrain')
   /*  board listener to get card clicked */

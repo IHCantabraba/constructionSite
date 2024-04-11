@@ -6,11 +6,11 @@
   --ihc-matched-card: rgb(78, 73, 73);
 }
 .boardBrain {
-  position: fixed;
+  /* position: fixed; */
   display: grid;
-  top: 60%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  /* top: 60%; */
+  /* left: 50%; */
+  /* transform: translate(-50%, -50%); */
   justify-content: center;
   align-content: center;
   grid-template-columns: repeat(4, auto);
@@ -26,8 +26,8 @@
 .card,
 .backCard,
 .frontCard {
-  height: 5rem;
-  width: 5rem;
+  height: 4rem;
+  width: 4rem;
   border-radius: 5px;
 }
 .backCard,
