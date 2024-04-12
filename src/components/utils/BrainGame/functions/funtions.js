@@ -4,24 +4,7 @@ import { showBoard, hideBoard } from '../showBoard/showBoard'
 let gameTime
 let counter
 let msg
-
-/* comprobar existencia del valor random */
-export function checkRandomExistance(UsedRandoms, randomNumber, exist) {
-  if (!UsedRandoms.includes(randomNumber)) {
-    UsedRandoms.push(randomNumber)
-  } else {
-    exist = !exist
-    while (exist) {
-      randomNumber = getRandomInt(0, 15)
-      if (!UsedRandoms.includes(randomNumber)) {
-        UsedRandoms.push(randomNumber)
-        exist = !exist
-      }
-    }
-  }
-  return randomNumber
-}
-
+let Timers = []
 /* asignar clase match a las cartas que coincidan */
 export const cardMatch = () => {
   let cardSelected = document.querySelectorAll('.card-selected')
@@ -51,15 +34,16 @@ export const ExpiredTime = () => {
     msg = 'Time Out'
     endGame(msg)
   }, 51000)
+  Timers.push(gameTime)
+  console.log(Timers)
   return gameTime
 }
-/* comprobar si se ha terminado el juego cada vez que se clica en una carta*/
-// export const checkDone = () => {
-//   if (done) {
-//     clearTimeout(gameTime)
-//     done = !done
-//   }
-// }
+export const ClearAllTimers = () => {
+  for (let i = 0; i < Timers.length; i++) {
+    console.log(`closing Timer ${Timers[i]}`)
+    clearTimeout(Timers[i])
+  }
+}
 /* intervalo para ir mostrando el tiempo restante */
 export const startBackcount = () => {
   counter = setInterval(() => {
@@ -69,12 +53,9 @@ export const startBackcount = () => {
       timer.innerHTML = `${restTime - 1}  s`
     } else {
       timer.innerHTML = '¡Time Out!'
-      clearInterval(counter)
+      deleteTimers()
     }
   }, 1000)
-  setTimeout(() => {
-    clearInterval(counter)
-  }, 52000)
 }
 /* resetaer el valor del contador */
 export const resetTimeLeft = () => {

@@ -2,18 +2,23 @@ import { initBrainGame } from '../../../../pages/BrainGame/brainGame'
 import { createDiv } from '../../TicTacToe/CreateDiv'
 import { getReady } from '../GetReady/getReadyModal'
 import { initGame } from '../InitGame/initGame'
-import { deleteTimers, resetTimeLeft } from '../functions/funtions'
+import {
+  ClearAllTimers,
+  deleteTimers,
+  resetTimeLeft
+} from '../functions/funtions'
 
 import './endGame.css'
 
 export const endGame = (msg) => {
   deleteTimers()
+  ClearAllTimers()
   const appDiv = document.querySelector('#app')
   const divMsg = createDiv('winning-msg-brain', 'winninMsg-brain')
   if (document.querySelector('.winning-msg-brain')) {
     const divMsg = document.querySelector('.winning-msg-brain')
     const divMsgTxt = document.querySelector('.data-winning-msg-text')
-    console.log(divMsgTxt)
+
     divMsg.classList.remove('hide')
     divMsgTxt.innerHTML = `${msg}!`
   } else {
