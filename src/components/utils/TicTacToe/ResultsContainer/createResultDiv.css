@@ -22,6 +22,7 @@
   width: var(--ihc-selector-width);
   font-family: 'Lobster';
   font-size: var(--ihc-selector-font-size);
+  filter: var(--drop-shadow);
 }
 
 .selectorX:hover,
@@ -48,6 +49,7 @@
 .turno {
   display: flex;
   flex-direction: row;
+  gap: 0.4rem;
 }
 .turnValue {
   font-weight: bold;
