@@ -18,7 +18,6 @@ export const endGame = (msg) => {
   if (document.querySelector('.winning-msg-brain')) {
     const divMsg = document.querySelector('.winning-msg-brain')
     const divMsgTxt = document.querySelector('.data-winning-msg-text')
-
     divMsg.classList.remove('hide')
     divMsgTxt.innerHTML = `${msg}!`
   } else {

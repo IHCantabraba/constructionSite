@@ -1,6 +1,7 @@
 import { createDiv } from '../../TicTacToe/CreateDiv'
 import './getReadyModal.css'
 import {
+  ClearAllTimers,
   ExpiredTime,
   resetTimeLeft,
   resetTimer,
@@ -10,6 +11,7 @@ import {
 import { resetLegendElement } from '../LegendCards/legendCards'
 
 export const getReady = () => {
+  ClearAllTimers()
   const appDiv = document.querySelector('#app')
   let divMsg = document.querySelector('.get-ready-msg')
   let divBtn = document.querySelector('.ReadyBtn')
