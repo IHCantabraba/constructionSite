@@ -67,9 +67,9 @@ export function createResultsDiv(ScoreX, ScoreO, Drawns, Totals) {
   TurnDiv.className = 'turno'
 
   /* crear select  */
-  const selectorX = document.createElement('input')
-  selectorX.type = 'input'
-  selectorX.value = 'X'
+  const selectorX = document.createElement('button')
+  // selectorX.type = 'input'
+  selectorX.textContent = 'X'
   selectorX.className = 'selectorX'
   selectorX.id = 'selectorX'
   selectorX.addEventListener('click', (e) => {
@@ -85,11 +85,11 @@ export function createResultsDiv(ScoreX, ScoreO, Drawns, Totals) {
   TurnDiv.append(selectorX)
 
   /* crear select con option X */
-  const selectorO = document.createElement('input')
-  selectorO.type = 'input'
+  const selectorO = document.createElement('button')
+  // selectorO.type = 'input'
   selectorO.className = 'selectorO'
   selectorO.id = 'selectorO'
-  selectorO.value = 'O'
+  selectorO.textContent = 'O'
   selectorO.addEventListener('click', (e) => {
     const board = document.querySelector('.board')
     const turnoO = ElegirTurno(selectorO.value)
