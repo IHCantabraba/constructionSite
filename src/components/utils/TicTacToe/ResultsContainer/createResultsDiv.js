@@ -1,5 +1,6 @@
 import { setInitialTurn } from '../../../../pages/TicTacToe/TicTacToe'
 import { createDiv } from '../CreateDiv'
+import { enablingAllCells } from '../functions'
 import './createResultDiv.css'
 
 export function createResultsDiv(ScoreX, ScoreO, Drawns, Totals) {
@@ -48,6 +49,7 @@ export function createResultsDiv(ScoreX, ScoreO, Drawns, Totals) {
 
   resultsDivdrawns.append(resultCountDrownTitle)
   resultsDivdrawns.append(resultCountDrawnValue)
+
   /* Crear div general de turno */
   const GeneralTurn = document.createElement('div')
   GeneralTurn.className = 'general-turn'
@@ -57,9 +59,11 @@ export function createResultsDiv(ScoreX, ScoreO, Drawns, Totals) {
   const turnText = document.createElement('p')
   turnText.className = 'turnText'
   turnText.textContent = 'Turn of: '
+
   const turnValue = document.createElement('p')
   turnValue.className = 'turnValue'
-  turnValue.textContent = 'X'
+  turnValue.textContent = '-'
+
   textDiv.append(turnText)
   textDiv.append(turnValue)
   /* crear div para insertar selector de quién comienza */
@@ -73,13 +77,15 @@ export function createResultsDiv(ScoreX, ScoreO, Drawns, Totals) {
   selectorX.className = 'selectorX'
   selectorX.id = 'selectorX'
   selectorX.addEventListener('click', (e) => {
-    const turnoX = ElegirTurno(selectorX.value)
+    const turnoX = ElegirTurno(e.target.textContent)
     turnValue.textContent = 'X'
     setInitialTurn(turnoX)
     const board = document.querySelector('.board')
 
     board.classList.remove('o')
     board.classList.add('x')
+    /* probar */
+    enablingAllCells()
   })
 
   TurnDiv.append(selectorX)
@@ -92,12 +98,14 @@ export function createResultsDiv(ScoreX, ScoreO, Drawns, Totals) {
   selectorO.textContent = 'O'
   selectorO.addEventListener('click', (e) => {
     const board = document.querySelector('.board')
-    const turnoO = ElegirTurno(selectorO.value)
+    const turnoO = ElegirTurno(e.target.textContent)
     turnValue.textContent = 'O'
 
     setInitialTurn(turnoO)
     board.classList.remove('x')
     board.classList.add('o')
+    /* probar */
+    enablingAllCells()
   })
   TurnDiv.append(selectorO)
 
@@ -130,6 +138,7 @@ export function createResultsDiv(ScoreX, ScoreO, Drawns, Totals) {
   return GeneralDiv
 }
 const ElegirTurno = (seleccion) => {
+  console.log(seleccion)
   if (seleccion === 'X') {
     return false
   } else {

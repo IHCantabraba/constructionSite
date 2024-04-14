@@ -1,10 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@400..700&display=swap');
-
 *,
 *::after,
 *::before {
   box-sizing: border-box;
-}
-* {
-  font-family: 'EDU+NSW+ACT+Foundation', sans-serif;
 }

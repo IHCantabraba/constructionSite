@@ -3,6 +3,7 @@ import { createResultsDiv } from '../../components/utils/TicTacToe/ResultsContai
 import { createBoard } from '../../components/utils/TicTacToe/Board/CreateBoard,js'
 import './TicTacToe.css'
 import { DisablingTurnSelectio } from '../../components/utils/TicTacToe/disablingTurnSelectiion'
+import { disablingAllCells } from '../../components/utils/TicTacToe/functions'
 /* determinar el turno */
 let circleTurn
 let cellElements
@@ -39,6 +40,8 @@ export const initBoard = () => {
     ShowWinner()
   }
   startGame()
+  /* deshabilitar click en celdas */
+  disablingAllCells()
 
   const cellEments = document.querySelectorAll('.cell')
 
@@ -60,6 +63,7 @@ export const initBoard = () => {
 }
 export const setInitialTurn = (turn) => {
   circleTurn = turn
+  console.log(circleTurn)
 }
 /* inicializar juego */
 function startGame() {
