@@ -1,5 +1,5 @@
 import './initRPS.css'
 
-export const initBoardRPS = () => {
+export const showBatle = () => {
   console.log('Board will be initiated')
 }
