@@ -6,7 +6,7 @@
   --ihc-board-top: 55%;
   --ihc-board-left: 50%;
   /* Cell */
-  --ihc-board-filter: 1px solid black;
+  /* --ihc-board-filter: 1px solid black; */
   --ihc-cell-border: none;
   /* chips */
   --ihc-chip-hover-color: rgb(142, 141, 141);
@@ -32,6 +32,7 @@
   align-items: center;
   position: relative;
   cursor: pointer;
+  filter: var(--ihc-board-filter);
 }
 /* eliminar bordes exteriores */
 .cell:first-child,
