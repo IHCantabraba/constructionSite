@@ -1,10 +1,14 @@
+:root {
+  --ihc-options-heigth: 10rem;
+}
+
 .options {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
   gap: 2rem;
-  width: 90%;
+  width: 60%;
 }
 
 .option-Stone,
@@ -20,12 +24,23 @@
   justify-content: center;
   gap: 0.5rem;
 }
-
-.option-Paper {
+.option-Stone {
   background-image: url('https://res.cloudinary.com/df7b0dj9r/image/upload/c_scale,w_94/v1713191222/pu%C3%B1o__gnjedy.png');
   background-repeat: no-repeat;
   background-size: auto;
-  background-position: 11px 2px;
+  background-position: 50% -15%;
+}
+.option-Scissors {
+  background-image: url('https://res.cloudinary.com/df7b0dj9r/image/upload/v1713190525/icons8-tijeras-de-mano-94_xof6km.png');
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: 16px 2px;
+}
+.option-Paper {
+  background-image: url('https://res.cloudinary.com/df7b0dj9r/image/upload/v1713190525/icons8-toda-la-mano-94_em6zbx.png');
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: 16px 2px;
 }
 .option-Stone > button,
 .option-Paper > button,
@@ -45,4 +60,5 @@
   top: 2rem;
   color: white;
   font-size: 1.5rem;
+  margin-top: 0.5rem;
 }

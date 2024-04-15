@@ -2,6 +2,7 @@
   --ihc-resultPlayer-P-BG-color: rgb(0, 136, 255);
   --ihc-results-P-RPS-brder-radius: 0.4rem;
   --ihc-totals-color: white;
+  --ihc-results-height: 4rem;
 }
 .Results {
   display: flex;
@@ -9,7 +10,7 @@
   align-items: center;
   justify-content: space-between;
   width: 90%;
-  height: 4rem;
+  height: var(--ihc-results-height);
 }
 
 .globalCount,
