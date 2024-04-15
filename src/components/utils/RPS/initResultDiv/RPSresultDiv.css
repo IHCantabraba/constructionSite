@@ -1,16 +1,39 @@
 :root {
   --ihc-resultPlayer-P-BG-color: rgb(0, 136, 255);
   --ihc-results-P-RPS-brder-radius: 0.4rem;
+  --ihc-totals-color: white;
+}
+.Results {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  height: 4rem;
 }
 
+.globalCount,
+.GlobalDrawns {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+.globalBatleCounter,
+.globalBatleText,
+.globalDrawnsCounter,
+.globalDrawnsText {
+  color: var(--ihc-totals-color);
+  font-size: 2rem;
+}
 .generalResult {
   width: 20rem;
   height: 4rem;
   border: 3px solid white;
-  position: absolute;
+  /* position: absolute; */
   display: flex;
   flex-direction: row;
   border-radius: 0.5rem;
+  /* left: 30rem; */
 }
 
 .resultPlayer {

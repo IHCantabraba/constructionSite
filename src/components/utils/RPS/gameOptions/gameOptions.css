@@ -1,0 +1,48 @@
+.options {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  gap: 2rem;
+  width: 90%;
+}
+
+.option-Stone,
+.option-Paper,
+.option-Scissors {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  border: 3px solid white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.option-Paper {
+  background-image: url('https://res.cloudinary.com/df7b0dj9r/image/upload/c_scale,w_94/v1713191222/pu%C3%B1o__gnjedy.png');
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: 11px 2px;
+}
+.option-Stone > button,
+.option-Paper > button,
+.option-Scissors > button {
+  display: none;
+  top: 1rem;
+  width: 4rem;
+  height: 10rem;
+  object-fit: cover;
+  border: none;
+  border-radius: 50%;
+}
+.option-Stone > p,
+.option-Paper > p,
+.option-Scissors > p {
+  position: relative;
+  top: 2rem;
+  color: white;
+  font-size: 1.5rem;
+}
