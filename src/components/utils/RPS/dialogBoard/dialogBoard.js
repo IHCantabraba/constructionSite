@@ -17,7 +17,7 @@ export const dialogBoard = () => {
   boardTitle.textContent = 'Take a risk and Play!'
   /* selections div */
   const batleSelection = createDiv('batleSelection')
-  /* create dialogBoard title */
+  /* create userarticle  */
   const userArticle = document.createElement('article')
   userArticle.classList.add('userArticle')
   const userSelection = document.createElement('h2')
@@ -25,8 +25,11 @@ export const dialogBoard = () => {
   userSelection.textContent = 'You have chosen... '
   const userSelecImg = document.createElement('img')
   userSelecImg.classList.add('userSelecImg')
-
-  /* create dialogBoard title */
+  /* create VS paragraf */
+  const vSparagraph = document.createElement('p')
+  vSparagraph.classList.add('vSparagraph')
+  vSparagraph.textContent = 'VS'
+  /* create computer article */
   const computerArticle = document.createElement('article')
   computerArticle.classList.add('computerArticle')
   const computerSelection = document.createElement('h2')
@@ -47,6 +50,7 @@ export const dialogBoard = () => {
   computerArticle.append(computerSelecImg)
   /* adding element to batle selection div */
   batleSelection.append(userArticle)
+  batleSelection.append(vSparagraph)
   batleSelection.append(computerArticle)
   /* adding elements to section */
   dialogBoard.append(boardTitle)
