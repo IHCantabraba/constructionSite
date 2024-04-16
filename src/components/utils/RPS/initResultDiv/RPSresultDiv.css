@@ -24,7 +24,7 @@
 .globalDrawnsCounter,
 .globalDrawnsText {
   color: var(--ihc-totals-color);
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 .generalResult {
   width: 20rem;

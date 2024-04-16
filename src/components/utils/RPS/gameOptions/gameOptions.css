@@ -1,5 +1,6 @@
 :root {
   --ihc-options-heigth: 10rem;
+  --ihc-OptionBtn-BG-color: rgb(30, 30, 30);
 }
 
 .options {
@@ -8,14 +9,14 @@
   align-items: center;
   justify-content: space-around;
   gap: 2rem;
-  width: 60%;
+  width: 85%;
 }
 
 .option-Stone,
 .option-Paper,
 .option-Scissors {
-  width: 8rem;
-  height: 8rem;
+  width: 6rem;
+  height: 6rem;
   border-radius: 50%;
   border: 3px solid white;
   display: flex;
@@ -24,41 +25,53 @@
   justify-content: center;
   gap: 0.5rem;
 }
-.option-Stone {
+.option-Stone > button {
   background-image: url('https://res.cloudinary.com/df7b0dj9r/image/upload/c_scale,w_94/v1713191222/pu%C3%B1o__gnjedy.png');
   background-repeat: no-repeat;
   background-size: auto;
-  background-position: 50% -15%;
+  background-position: 0px -19px;
 }
-.option-Scissors {
-  background-image: url('https://res.cloudinary.com/df7b0dj9r/image/upload/v1713190525/icons8-tijeras-de-mano-94_xof6km.png');
+.option-Scissors > button {
+  background-image: url('https://res.cloudinary.com/df7b0dj9r/image/upload/c_scale,w_74/v1713190525/icons8-tijeras-de-mano-94_xof6km.png');
   background-repeat: no-repeat;
   background-size: auto;
-  background-position: 16px 2px;
+  background-position: 10px 2px;
 }
-.option-Paper {
-  background-image: url('https://res.cloudinary.com/df7b0dj9r/image/upload/v1713190525/icons8-toda-la-mano-94_em6zbx.png');
+.option-Paper > button {
+  background-image: url('https://res.cloudinary.com/df7b0dj9r/image/upload/c_scale,w_74/v1713190525/icons8-toda-la-mano-94_em6zbx.png');
   background-repeat: no-repeat;
   background-size: auto;
-  background-position: 16px 2px;
+  background-position: 10px 2px;
 }
 .option-Stone > button,
 .option-Paper > button,
 .option-Scissors > button {
-  display: none;
-  top: 1rem;
-  width: 4rem;
-  height: 10rem;
-  object-fit: cover;
-  border: none;
+  display: hidden;
+  height: 100%;
+  width: 100%;
+  background-color: var(--ihc-OptionBtn-BG-color);
   border-radius: 50%;
+  border: none;
 }
 .option-Stone > p,
 .option-Paper > p,
 .option-Scissors > p {
   position: relative;
-  top: 2rem;
+  top: 1.5rem;
   color: white;
+  font-size: 1rem;
+  margin-top: 01rem;
+}
+.subBatles,
+.lastWinner {
+  display: flex;
+  flex-direction: row;
+  gap: 0.4rem;
+}
+.subBatlesP,
+.subBatlesText,
+.lastWinnerP,
+.lastWinnerText {
+  color: var(--ihc-totals-color);
   font-size: 1.5rem;
-  margin-top: 0.5rem;
 }
