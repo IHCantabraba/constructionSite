@@ -17,8 +17,6 @@ export const ActivateRPSGame = (textContent) => {
     initResultsRPS()
     dialogBoard()
     insertGameOptions()
-
-    /* initOptionSelection() */
   })
 
   return headerRPSBtn

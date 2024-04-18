@@ -3,6 +3,7 @@ export const CreateBtn = (id, clas, value) => {
   btn.id = id
   btn.classList.add(clas)
   btn.value = value
+  btn.innerHTML = `<img src='${value}' id='${id}'/>`
   return btn
 }
 

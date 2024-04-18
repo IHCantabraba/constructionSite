@@ -1,7 +1,12 @@
 import './gameOptions.css'
 import { gameIcons } from './gameIcons'
 import { createDiv } from '../../TicTacToe/CreateDiv'
-import { AddSelectedOption, MachineSelection } from '../gameLogic/gameLogic'
+import {
+  AddSelectedOption,
+  CheckBatleWinner,
+  ClickControl,
+  MachineSelection
+} from '../gameLogic/gameLogic'
 import { CreateBtn, CreateElement } from '../utlis/utlis.'
 
 sessionStorage.setItem('subBatle', 0)
@@ -41,14 +46,18 @@ export const insertGameOptions = () => {
   /* create button forEach option */
   for (let option of gameIcons) {
     /* creating elements */
-    const IndivOption = createDiv(`option-${option.name}`)
+    const IndivOption = createDiv(`option`)
     const optionImg = CreateBtn(option.name, 'RPS-Btn', option.url)
     /* eventListener */
     optionImg.addEventListener('click', (e) => {
       /* asignar selección del usuairo */
-      AddSelectedOption(e.target.value)
+      AddSelectedOption(e.target.src, e.target.id)
       /* generar una selecion de la máquina */
       MachineSelection()
+      /* comprobar quien gana la batalla */
+      CheckBatleWinner()
+      /* ClicksControl */
+      ClickControl()
     })
     /* adding elemens to parent */
     IndivOption.append(optionImg)

@@ -1,6 +1,7 @@
 :root {
   --ihc-options-heigth: 10rem;
   --ihc-OptionBtn-BG-color: rgb(30, 30, 30);
+  --ihc-current-winner-color: orange;
 }
 
 .options {
@@ -12,9 +13,7 @@
   width: 85%;
 }
 
-.option-Stone,
-.option-Paper,
-.option-Scissors {
+.option {
   width: 6rem;
   height: 6rem;
   border-radius: 50%;
@@ -25,27 +24,14 @@
   justify-content: center;
   gap: 0.5rem;
 }
-.option-Stone > button {
-  background-image: url('https://res.cloudinary.com/df7b0dj9r/image/upload/c_scale,w_94/v1713191222/pu%C3%B1o__gnjedy.png');
-  background-repeat: no-repeat;
-  background-size: auto;
-  background-position: 0px -19px;
+
+.option > button > img {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  border: none;
 }
-.option-Scissors > button {
-  background-image: url('https://res.cloudinary.com/df7b0dj9r/image/upload/c_scale,w_74/v1713190525/icons8-tijeras-de-mano-94_xof6km.png');
-  background-repeat: no-repeat;
-  background-size: auto;
-  background-position: 10px 2px;
-}
-.option-Paper > button {
-  background-image: url('https://res.cloudinary.com/df7b0dj9r/image/upload/c_scale,w_74/v1713190525/icons8-toda-la-mano-94_em6zbx.png');
-  background-repeat: no-repeat;
-  background-size: auto;
-  background-position: 10px 2px;
-}
-.option-Stone > button,
-.option-Paper > button,
-.option-Scissors > button {
+.option > button {
   display: hidden;
   height: 100%;
   width: 100%;
@@ -53,9 +39,7 @@
   border-radius: 50%;
   border: none;
 }
-.option-Stone > p,
-.option-Paper > p,
-.option-Scissors > p {
+.option > p {
   position: relative;
   top: 1.5rem;
   color: white;
@@ -65,13 +49,19 @@
 .subBatles,
 .lastWinner {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 0.4rem;
+  align-items: center;
+  justify-content: center;
 }
 .subBatlesP,
-.subBatlesText,
-.lastWinnerP,
-.lastWinnerText {
+.lastWinnerP {
   color: var(--ihc-totals-color);
+  font-size: 1.5rem;
+}
+
+.subBatlesText,
+.lastWinnerText {
+  color: var(--ihc-current-winner-color);
   font-size: 1.5rem;
 }
