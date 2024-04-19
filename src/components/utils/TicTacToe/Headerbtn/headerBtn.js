@@ -1,5 +1,6 @@
 import { initBoard } from '../../../../pages/TicTacToe/TicTacToe'
 import { deleteTimers } from '../../BrainGame/functions/funtions'
+import { resetStorage } from '../../RPS/gameLogic/gameLogic'
 
 import './headerBtn.css'
 
@@ -13,6 +14,7 @@ export const createHeaderBtn = (textContent) => {
   buttonTicTac.addEventListener('click', () => {
     /* eliminar posibles timers de BrainGame */
     deleteTimers()
+    resetStorage()
 
     if (!document.querySelector('.board')) {
       const content = document.querySelector('.content')

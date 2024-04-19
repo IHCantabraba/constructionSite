@@ -1,10 +1,12 @@
 import { initGame } from '../../components/utils/BrainGame/InitGame/initGame'
 import { deleteTimers } from '../../components/utils/BrainGame/functions/funtions'
+import { resetStorage } from '../../components/utils/RPS/gameLogic/gameLogic'
 import './brainGame.css'
 
 /* función para el botón del juego en el header */
 export const initBrainGame = (textContent) => {
   deleteTimers()
+  resetStorage()
   const buttonBrainGame = document.createElement('button')
   buttonBrainGame.textContent = textContent
   /* listener del botón del header */
