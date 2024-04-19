@@ -1,7 +1,7 @@
 import { createDiv } from '../../TicTacToe/CreateDiv'
 import './RPSresultDiv.css'
-localStorage.setItem('user', 0)
-localStorage.setItem('comp', 0)
+sessionStorage.setItem('user', 0)
+sessionStorage.setItem('comp', 0)
 sessionStorage.setItem('globalBatles', 0)
 sessionStorage.setItem('globalDrawns', 0)
 /* crear el result */

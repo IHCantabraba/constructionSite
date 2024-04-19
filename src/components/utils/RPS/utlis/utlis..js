@@ -1,9 +1,9 @@
-export const CreateBtn = (id, clas, value) => {
+export const CreateBtn = (id, clas, value, winner) => {
   const btn = document.createElement('button')
   btn.id = id
   btn.classList.add(clas)
   btn.value = value
-  btn.innerHTML = `<img src='${value}' id='${id}'/>`
+  btn.innerHTML = `<img src='${value}' id='${id}' data-winner="${winner}"/>`
   return btn
 }
 

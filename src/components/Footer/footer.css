@@ -2,13 +2,13 @@
 
 .footer {
   height: var(--ihc-footer-height);
+  width: 90%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: var(--ihc-footer-gap);
   position: fixed;
-  left: 40%;
   bottom: 10px;
 }
 .footer > p {
@@ -16,4 +16,5 @@
   font-weight: bold;
   font-size: 1.4rem;
   color: white;
+  align-self: center;
 }

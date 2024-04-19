@@ -59,3 +59,19 @@
   font-size: 1.5rem;
   align-self: flex-end;
 }
+
+@media (max-width: 735px) {
+  .dialogBoard {
+    gap: 2rem;
+  }
+  .sectionTitle {
+    font-size: 1.3rem;
+  }
+  .userSelection,
+  .computerSelection {
+    font-size: 0.7rem;
+  }
+  .vSparagraph {
+    font-size: 1.2rem;
+  }
+}

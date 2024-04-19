@@ -20,7 +20,7 @@ export const insertGameOptions = () => {
   /* SubBatles */
   const subBatles = createDiv('subBatles')
   const subBatlesP = CreateElement('p', 'subBatlesP', 'Batle: ')
-
+  const optionDiv = createDiv('optionDiv')
   const subBatlesText = CreateElement(
     'p',
     'subBatlesText',
@@ -47,23 +47,37 @@ export const insertGameOptions = () => {
   for (let option of gameIcons) {
     /* creating elements */
     const IndivOption = createDiv(`option`)
-    const optionImg = CreateBtn(option.name, 'RPS-Btn', option.url)
+    const optionImg = CreateBtn(
+      option.name,
+      'RPS-Btn',
+      option.url,
+      option.winnerTo
+    )
     /* eventListener */
     optionImg.addEventListener('click', (e) => {
+      console.log()
       /* asignar selección del usuairo */
-      AddSelectedOption(e.target.src, e.target.id)
+      AddSelectedOption(
+        e.target.src,
+        e.target.id,
+        e.target.getAttribute('data-winner')
+      )
       /* generar una selecion de la máquina */
       MachineSelection()
       /* comprobar quien gana la batalla */
-      CheckBatleWinner()
-      /* ClicksControl */
-      ClickControl()
+      if (CheckBatleWinner() !== 'drawn') {
+        console.log('distinto de drawn ')
+        ClickControl()
+      }
+      /* mostrar modal de seguir jugando */
     })
     /* adding elemens to parent */
     IndivOption.append(optionImg)
+    optionDiv.append(IndivOption)
     /* adding elemens to parent */
-    optionsDiv.append(IndivOption)
+    // optionsDiv.append(IndivOption)
   }
+  optionsDiv.append(optionDiv)
   optionsDiv.append(lastWiner)
   if (content) {
     content.append(optionsDiv)

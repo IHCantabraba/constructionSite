@@ -46,6 +46,13 @@
   font-size: 1rem;
   margin-top: 01rem;
 }
+.optionDiv {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
 .subBatles,
 .lastWinner {
   display: flex;
@@ -64,4 +71,26 @@
 .lastWinnerText {
   color: var(--ihc-current-winner-color);
   font-size: 1.5rem;
+}
+
+@media (max-width: 735px) {
+  .option,
+  .option > button > img {
+    width: 5rem;
+    height: 5rem;
+  }
+  .subBatlesP,
+  .lastWinnerP,
+  .subBatlesText,
+  .lastWinnerText {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 610px) {
+  .option,
+  .option > button > img {
+    width: 4rem;
+    height: 4rem;
+  }
 }
