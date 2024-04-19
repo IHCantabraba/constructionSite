@@ -74,11 +74,55 @@ export const insertGameOptions = () => {
     /* adding elemens to parent */
     IndivOption.append(optionImg)
     optionDiv.append(IndivOption)
-    /* adding elemens to parent */
-    // optionsDiv.append(IndivOption)
   }
   optionsDiv.append(optionDiv)
   optionsDiv.append(lastWiner)
+  if (content) {
+    content.append(optionsDiv)
+  }
+  OptionsQuery()
+}
+
+const OptionsQuery = () => {
+  /* main element */
+  const content = document.querySelector('.dialogBoard')
+  /* main container */
+  const optionsDiv = createDiv('optionsQuery')
+  // optionsDiv.style.display = 'none'
+  const optionDiv = createDiv('optionDivQuery')
+  /* create button forEach option */
+  for (let option of gameIcons) {
+    /* creating elements */
+    const IndivOption = createDiv(`optionQuery`)
+    const optionImg = CreateBtn(
+      option.name,
+      'RPS-Btn',
+      option.url,
+      option.winnerTo
+    )
+    /* eventListener */
+    optionImg.addEventListener('click', (e) => {
+      console.log()
+      /* asignar selección del usuairo */
+      AddSelectedOption(
+        e.target.src,
+        e.target.id,
+        e.target.getAttribute('data-winner')
+      )
+      /* generar una selecion de la máquina */
+      MachineSelection()
+      /* comprobar quien gana la batalla */
+      if (CheckBatleWinner() !== 'drawn') {
+        console.log('distinto de drawn ')
+        ClickControl()
+      }
+      /* mostrar modal de seguir jugando */
+    })
+    /* adding elemens to parent */
+    IndivOption.append(optionImg)
+    optionDiv.append(IndivOption)
+  }
+  optionsDiv.append(optionDiv)
   if (content) {
     content.append(optionsDiv)
   }

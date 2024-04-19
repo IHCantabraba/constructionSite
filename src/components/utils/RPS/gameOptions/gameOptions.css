@@ -13,7 +13,8 @@
   width: 85%;
 }
 
-.option {
+.option,
+.optionQuery {
   width: 6rem;
   height: 6rem;
   border-radius: 50%;
@@ -25,13 +26,15 @@
   gap: 0.5rem;
 }
 
-.option > button > img {
+.option > button > img,
+.optionQuery > button > img {
   width: 6rem;
   height: 6rem;
   border-radius: 50%;
   border: none;
 }
-.option > button {
+.option > button,
+.optionQuery > button {
   display: hidden;
   height: 100%;
   width: 100%;
@@ -46,13 +49,21 @@
   font-size: 1rem;
   margin-top: 01rem;
 }
-.optionDiv {
+.optionDiv,
+.optionsQuery,
+.optionDivQuery {
   display: flex;
   flex-direction: row;
   gap: 2rem;
   align-items: center;
   justify-content: center;
 }
+.optionsQuery {
+  display: none;
+  width: 90%;
+  gap: 1.5rem;
+}
+
 .subBatles,
 .lastWinner {
   display: flex;
@@ -90,6 +101,26 @@
 @media (max-width: 610px) {
   .option,
   .option > button > img {
+    width: 4rem;
+    height: 4rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .optionDiv {
+    display: none;
+  }
+  .optionsQuery {
+    display: flex;
+  }
+  .optionDivQuery {
+    gap: 1rem;
+  }
+  .optionQuery > button > img {
+    width: 3rem;
+    height: 3rem;
+  }
+  .optionQuery {
     width: 4rem;
     height: 4rem;
   }
