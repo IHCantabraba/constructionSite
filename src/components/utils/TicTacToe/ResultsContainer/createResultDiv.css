@@ -2,7 +2,7 @@
 
 :root {
   --drop-shadow: drop-shadow(5px 6px 10px #000000);
-  --ihc-selector-GB-color: rgb(73, 73, 73);
+  --ihc-selector-GB-color: rgb(182, 182, 182);
   --ihc-selector-font-size: 1.2rem;
   --ihc-selector-width: 6rem;
   --ihc-selector-border-bottom: 3px solid rgb(236, 200, 117);
@@ -23,6 +23,7 @@
   font-family: 'Lobster';
   font-size: var(--ihc-selector-font-size);
   filter: var(--drop-shadow);
+  color: black;
 }
 
 .selectorX:hover,

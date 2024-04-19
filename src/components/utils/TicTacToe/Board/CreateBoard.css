@@ -2,7 +2,7 @@
   /* Board */
   --ihc-board-position: fixed;
   --ihc-board-translate: translate(-50%, -50%);
-  --ihc-board-filter: drop-shadow(5px 6px 10px #504f4f);
+  --ihc-board-filter: drop-shadow(2px 3px 4px #504f4f87);
   --ihc-board-top: 55%;
   --ihc-board-left: 50%;
   /* Cell */
@@ -78,6 +78,7 @@
   position: absolute;
   width: calc(var(--ihc-mark-size) * 0.15);
   height: var(--ihc-mark-size);
+  border: 1px solid gray;
 }
 /* rotar before and after para formar la X */
 .cell.x::before,
@@ -106,7 +107,7 @@
 .board.o .cell:not(.x):not(.o):hover::after {
   width: calc(var(--ihc-mark-size) * 0.7);
   height: calc(var(--ihc-mark-size) * 0.7);
-  background-color: rgb(192, 221, 231);
+  background-color: rgb(97, 98, 99);
 }
 .board.hide {
   display: none;
