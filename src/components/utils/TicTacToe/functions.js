@@ -16,3 +16,10 @@ export const enablingAllCells = () => {
     })
   }
 }
+
+export const resetStorageTicTac = () => {
+  sessionStorage.setItem('Totals', 0)
+  sessionStorage.setItem('Oscore', 0)
+  sessionStorage.setItem('Xscore', 0)
+  sessionStorage.setItem('Drawns', 0)
+}

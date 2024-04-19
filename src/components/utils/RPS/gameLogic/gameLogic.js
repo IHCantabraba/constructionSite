@@ -144,6 +144,9 @@ export const resetStorage = () => {
   sessionStorage.setItem('subBatle', 0)
   sessionStorage.setItem('lastWinner', '-')
 }
+export const resetGlobalBatle = () => {
+  sessionStorage.setItem('globalBatles', 0)
+}
 export const resetLastWinner = () => {
   const lastWinnerText = document.querySelector('.lastWinnerText')
   lastWinnerText.innerHTML = sessionStorage.getItem('lastWinner')
