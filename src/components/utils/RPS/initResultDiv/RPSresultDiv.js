@@ -83,4 +83,50 @@ export const initResultsRPS = () => {
     content.innerHTML = ''
     content.append(ResultsDiv)
   }
+  generalResultQuery()
+}
+
+const generalResultQuery = () => {
+  const content = document.querySelector('.content')
+
+  /* general */
+  const generalDiv = createDiv('generalResultQuery')
+  /* userP */
+  const userP = document.createElement('p')
+  /* computerP */
+  const computerP = document.createElement('p')
+  /* winer counter */
+  const winnerCoutner = createDiv('winnerCounter')
+  /* userCoutner */
+  const userCounter = document.createElement('p')
+  userCounter.classList.add('userCounter')
+  userCounter.textContent = localStorage.getItem('user')
+  /* separator */
+  const separator = document.createElement('p')
+  separator.classList.add('separator')
+  separator.textContent = ':'
+
+  /* compCounter */
+  const compCounter = document.createElement('p')
+  compCounter.classList.add('compCounter')
+  compCounter.textContent = localStorage.getItem('comp')
+  /* adding elements to winnerCounter */
+  winnerCoutner.append(userCounter)
+  winnerCoutner.append(separator)
+  winnerCoutner.append(compCounter)
+  /* adding winnerCounter elements text and clases */
+  userP.textContent = 'user'
+  userP.classList.add('resultPlayer')
+  userP.classList.add('userQuery')
+  computerP.textContent = 'comp'
+  computerP.classList.add('resultPlayer')
+  computerP.classList.add('computerQuery')
+  /* adding general div elements */
+  generalDiv.append(userP)
+  generalDiv.append(winnerCoutner)
+  generalDiv.append(computerP)
+
+  if (content) {
+    content.append(generalDiv)
+  }
 }

@@ -127,13 +127,17 @@ export const whoWonWarExport = () => {
   console.log(`comCount: ${compCounter.innerHTML}`)
   if (Number(userCounter.innerHTML) > Number(compCounter.innerHTML)) {
     console.log('user wins')
-    msg = 'User Win!'
+    msg = `User Win! \n${userCounter.innerHTML} vs  ${compCounter.innerHTML} 
+     `
   } else if (Number(compCounter.innerHTML) > Number(userCounter.innerHTML)) {
-    console.log('comp wins')
-    msg = 'Computer Win!'
+    msg = `Computer Win! 
+    ${userCounter.innerHTML} -  ${compCounter.innerHTML}
+    `
   } else {
     console.log('drawn!')
-    msg = 'Drawn!'
+    msg = `Drawn! 
+    ${userCounter.innerHTML} vs  ${compCounter.innerHTML}
+    `
     UpdateDrawnCount()
   }
   return msg

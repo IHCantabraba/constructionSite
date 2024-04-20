@@ -15,7 +15,7 @@ export const showRPSmodal = () => {
   if (divMsg !== null) {
     divMsg.classList.remove('hide')
   } else {
-    divMsg = CreateElement('div', 'get-ready-msg')
+    divMsg = CreateElement('div', 'get-RPS-ready-msg')
     divMsg.id = 'winninMsg-brain'
     divBtn = CreateElement('button', 'ReadyBtn')
     // divBtn.classList.add('ReadyBtn')

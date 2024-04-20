@@ -37,3 +37,9 @@
 .hide {
   display: none;
 }
+
+@media (max-width: 800px) {
+  .get-RPS-ready-msg {
+    font-size: 3rem;
+  }
+}

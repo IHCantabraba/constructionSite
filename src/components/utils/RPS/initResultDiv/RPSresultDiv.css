@@ -36,7 +36,14 @@
   border-radius: 0.5rem;
   /* left: 30rem; */
 }
-
+.generalResultQuery {
+  /* border: 3px solid white; */
+  display: none;
+  flex-direction: none;
+  border-radius: 0.5rem;
+  width: 9rem;
+  height: 3.2rem;
+}
 .resultPlayer {
   background-color: var(--ihc-resultPlayer-P-BG-color);
   border-radius: var(--ihc-results-P-RPS-brder-radius);
@@ -44,13 +51,15 @@
   height: 2rem;
   padding: 0rem 0.5rem;
 }
-.user {
+.user,
+.userQurey {
   width: 3.2rem;
   position: relative;
   left: -1.8rem;
   top: 0.8rem;
 }
-.computer {
+.computer,
+.computerQuery {
   width: 4rem;
   position: relative;
   right: -9.5rem;
@@ -113,5 +122,33 @@
   .globalDrawnsCounter,
   .globalDrawnsText {
     font-size: 1.2rem;
+  }
+}
+@media (max-width: 580px) {
+  .generalResult {
+    display: none;
+  }
+  .Results {
+    display: flex;
+  }
+  .generalResultQuery {
+    display: flex;
+  }
+  .computerQuery {
+    right: -1.8rem;
+    width: 3.2rem;
+    height: 1.4rem;
+  }
+  .userQuery {
+    width: 2.8rem;
+    height: 1.4rem;
+    top: 0.8rem;
+    left: -1.5rem;
+    position: relative;
+  }
+  .userSelecImg,
+  .computerSelecImg {
+    height: 2.5rem;
+    width: 2.5rem;
   }
 }
