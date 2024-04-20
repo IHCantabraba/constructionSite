@@ -110,6 +110,10 @@
   .optionDiv {
     display: none;
   }
+  .subBatles,
+  .lastWinner {
+    flex-direction: row;
+  }
   .optionsQuery {
     display: flex;
     margin-top: 50px;

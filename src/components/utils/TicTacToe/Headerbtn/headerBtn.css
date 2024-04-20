@@ -24,13 +24,10 @@ header button:hover {
   justify-content: center;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 580px) {
   header button {
     padding: 2px 6px;
   }
-}
-
-@media (max-width: 440px) {
   header button {
     font-size: 20px;
   }

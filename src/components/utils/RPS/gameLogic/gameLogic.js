@@ -84,11 +84,8 @@ export const ClickControl = () => {
     if (clicks !== 5) {
       updateBatleCount()
     } else {
-      // showBatleWinner()
       updateWarsCount()
       showRPSmodal()
-      // resetScoreBoard()
-      // resetBatleCount()
       clicks = 0
     }
     /* Mostrar texto de ganador de batalla */
@@ -102,22 +99,31 @@ export const resetBatleCount = () => {
 const updateComputerScore = () => {
   let computerScoreBoard = sessionStorage.getItem('comp')
   sessionStorage.setItem('comp', Number(computerScoreBoard) + 1)
-  const compCounter = document.querySelector('.compCounter')
-  compCounter.innerHTML = Number(computerScoreBoard) + 1
+  const compCounter = document.querySelectorAll('.compCounter')
+  for (let computer of compCounter) {
+    computer.innerHTML = Number(computerScoreBoard) + 1
+  }
 }
 /* actualizar marcador del user */
 const updateUserScore = () => {
+  console.log('updating counter')
   let userScoreBoard = sessionStorage.getItem('user')
   sessionStorage.setItem('user', Number(userScoreBoard) + 1)
-  const userCounter = document.querySelector('.userCounter')
-  userCounter.innerHTML = Number(userScoreBoard) + 1
+  const userCounter = document.querySelectorAll('.userCounter')
+  for (const user of userCounter) {
+    user.innerHTML = Number(userScoreBoard) + 1
+  }
 }
 /* resetar scores */
 export const resetScoreBoard = () => {
-  const userCounter = document.querySelector('.userCounter')
-  userCounter.innerHTML = '0'
-  const compCounter = document.querySelector('.compCounter')
-  compCounter.innerHTML = '0'
+  const userCounter = document.querySelectorAll('.userCounter')
+  for (let user of userCounter) {
+    user.innerHTML = '0'
+  }
+  const compCounter = document.querySelectorAll('.compCounter')
+  for (let computer of compCounter) {
+    computer.innerHTML = '0'
+  }
 }
 
 export const whoWonWarExport = () => {
@@ -127,17 +133,20 @@ export const whoWonWarExport = () => {
   console.log(`comCount: ${compCounter.innerHTML}`)
   if (Number(userCounter.innerHTML) > Number(compCounter.innerHTML)) {
     console.log('user wins')
-    msg = `User Win! \n${userCounter.innerHTML} vs  ${compCounter.innerHTML} 
-     `
+    msg = [
+      'User Win!',
+      `${userCounter.innerHTML} - ${compCounter.innerHTML}`
+    ].join('\n')
   } else if (Number(compCounter.innerHTML) > Number(userCounter.innerHTML)) {
-    msg = `Computer Win! 
-    ${userCounter.innerHTML} -  ${compCounter.innerHTML}
-    `
+    msg = [
+      'Computer Win!',
+      `${userCounter.innerHTML} - ${compCounter.innerHTML}`
+    ].join('\n')
   } else {
-    console.log('drawn!')
-    msg = `Drawn! 
-    ${userCounter.innerHTML} vs  ${compCounter.innerHTML}
-    `
+    msg = [
+      'Drawn!',
+      `${userCounter.innerHTML} - ${compCounter.innerHTML}`
+    ].join('\n')
     UpdateDrawnCount()
   }
   return msg

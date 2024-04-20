@@ -129,6 +129,9 @@
     display: none;
   }
   .Results {
+    height: 2rem;
+  }
+  .Results {
     display: flex;
   }
   .generalResultQuery {
