@@ -133,7 +133,7 @@ const generalResultQuery = () => {
   for (let counterU of CountersUser) {
     counterU.innerHTML = '0'
   }
-  const CountersComp = document.querySelectorAll('.comCounter')
+  const CountersComp = document.querySelectorAll('.compCounter')
   for (let counterC of CountersComp) {
     counterC.innerHTML = '0'
   }
