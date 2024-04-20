@@ -129,4 +129,12 @@ const generalResultQuery = () => {
   if (content) {
     content.append(generalDiv)
   }
+  const CountersUser = document.querySelectorAll('.userCounter')
+  for (let counterU of CountersUser) {
+    counterU.innerHTML = '0'
+  }
+  const CountersComp = document.querySelectorAll('.comCounter')
+  for (let counterC of CountersComp) {
+    counterC.innerHTML = '0'
+  }
 }
